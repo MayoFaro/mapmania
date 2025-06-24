@@ -38,9 +38,9 @@ flutter:
 
   assets:
     - assets/datas/
-    - assets/flags/
     - assets/maps/
     - assets/fonts/flags_sprite.png
+    - assets/relief.png
 
 
   uses-material-design: true

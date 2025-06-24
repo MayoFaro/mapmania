@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:mapmania/screens/flag_test_screen.dart';
+import 'package:mapmania/screens/test_fond_image.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/game_config.dart';
 import '../screens/test_wid_screen.dart';
@@ -105,7 +106,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               },
             ),
-          ],
+            const SizedBox(height: 16),
+            ElevatedButton(
+              child: const Text('Test image'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const TestFondImageScreen()),
+                );
+              },
+            ),
+          ]
         ),
       ),
     );
