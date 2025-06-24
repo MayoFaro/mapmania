@@ -9,7 +9,6 @@ import 'package:flutter/services.dart';
 import '../widgets/map_widget.dart';
 import '../models/game_config.dart';
 import '../icons/flag_sprite_order.dart';
-import '../icons/flags.dart';
 
 /// Écran de quiz géographique en 3 phases :
 /// 1) 10 pays
