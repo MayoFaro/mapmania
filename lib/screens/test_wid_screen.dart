@@ -32,6 +32,10 @@ class TestWidScreen extends StatefulWidget {
 }
 
 class _TestWidScreenState extends State<TestWidScreen> {
+  /// Couleur du flash d'erreur (modifiable)
+  final Color _flashColor = (Colors.redAccent[400] ?? Colors.redAccent).withAlpha(148);
+
+
   final Random _rng = Random();
 
   // JSON cache pour les noms
@@ -214,21 +218,21 @@ class _TestWidScreenState extends State<TestWidScreen> {
       if (_attempts == 0) {
         // Premier essai incorrect : flash rouge unique
         setState(() => _showWrongFlash = true);
-        Future.delayed(const Duration(milliseconds: 150), () {
+        Future.delayed(const Duration(milliseconds: 100), () {
           setState(() => _showWrongFlash = false);
         });
         _attempts = 1;
       } else {
         // Deuxième essai incorrect : triple flash puis suivant
         for (int i = 0; i < 3; i++) {
-          Future.delayed(Duration(milliseconds: i * 200), () {
+          Future.delayed(Duration(milliseconds: i * 150), () {
             setState(() => _showWrongFlash = true);
           });
-          Future.delayed(Duration(milliseconds: i * 200 + 100), () {
+          Future.delayed(Duration(milliseconds: i * 150 + 80), () {
             setState(() => _showWrongFlash = false);
           });
         }
-        Future.delayed(const Duration(milliseconds: 500), () {
+        Future.delayed(const Duration(milliseconds: 450), () {
           _remaining.remove(_currentIso!);
           _pickNext();
         });
@@ -242,33 +246,35 @@ class _TestWidScreenState extends State<TestWidScreen> {
     if (_error != null) return Scaffold(appBar: AppBar(title: const Text('Erreur')), body: Center(child: Text(_error!)));
 
     return Scaffold(
-      appBar: AppBar(
-        title: _buildAppBarTitle(),
-        centerTitle: true,
-      ),
-      body: Stack(
-        children: [
+        appBar: AppBar(
+          title: _buildAppBarTitle(),
+          centerTitle: true,
+        ),
+        body: Stack(
+          children: [
           MapWidget(
-            continentCode: 'AF',
-            discoveredCountries: _discovered,
-            gameMode: widget.difficulty,
-            onTapCountry: _handleTap,
-          ),
-          Positioned(
-            top: MediaQuery.of(context).padding.top + 8,
-            left: 16,
-            child: Text(_elapsed, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-          ),
-          Positioned(
-            top: MediaQuery.of(context).padding.top + 8,
-            right: 16,
-            child: Text('${_discovered.length}/${_phase < 2 ? 10 : 5}',
-                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
-          ),
-          if (_showWrongFlash)
-            Positioned.fill(child: Container(color: Colors.red.withOpacity(0.3))),
-        ],
-      ),
+          continentCode: 'AF',
+          discoveredCountries: _discovered,
+          gameMode: widget.difficulty,
+          onTapCountry: _handleTap,
+        ),
+        Positioned(
+          top: MediaQuery.of(context).padding.top + 8,
+          left: 16,
+          child: Text(_elapsed, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        ),
+        Positioned(
+          top: MediaQuery.of(context).padding.top + 8,
+          right: 16,
+          child: Text('${_discovered.length}/${_phase < 2 ? 10 : 5}',
+              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+        ),
+        if (_showWrongFlash)
+    Positioned.fill(
+      child: Container(color: _flashColor),
+    ),
+    ],
+    ),
     );
   }
 
