@@ -1,0 +1,7 @@
+[
+  { "name": "Afrique",  "code": "AF" },
+  { "name": "Europe",   "code": "EU" },
+  { "name": "Asie",     "code": "AS" },
+  { "name": "Amérique", "code": "NA" },
+  { "name": "Océanie",  "code": "OC" }
+]

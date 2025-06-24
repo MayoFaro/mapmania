@@ -1,0 +1,2987 @@
+[
+  {
+    "code": "FR",
+    "continent": "EU",
+    "flag": "assets/flags/fr.png",
+    "name": {
+      "fr": "France",
+      "en": "France"
+    },
+    "capital": {
+      "fr": "Paris",
+      "en": "Paris"
+    }
+  },
+  {
+    "code": "DE",
+    "continent": "EU",
+    "flag": "assets/flags/de.png",
+    "name": {
+      "fr": "Allemagne",
+      "en": "Germany"
+    },
+    "capital": {
+      "fr": "Berlin",
+      "en": "Berlin"
+    }
+  },
+  {
+    "code": "MA",
+    "continent": "AF",
+    "flag": "assets/flags/ma.png",
+    "name": {
+      "fr": "Maroc",
+      "en": "Morocco"
+    },
+    "capital": {
+      "fr": "Rabat",
+      "en": "Rabat"
+    }
+  },
+  {
+    "code": "JP",
+    "continent": "AS",
+    "flag": "assets/flags/jp.png",
+    "name": {
+      "fr": "Japon",
+      "en": "Japan"
+    },
+    "capital": {
+      "fr": "Tokyo",
+      "en": "Tokyo"
+    }
+  },
+  {
+    "code": "US",
+    "continent": "NA",
+    "flag": "assets/flags/us.png",
+    "name": {
+      "fr": "États-Unis",
+      "en": "United States"
+    },
+    "capital": {
+      "fr": "Washington, D.C.",
+      "en": "Washington, D.C."
+    }
+  },
+
+    {
+      "code": "LY",
+      "continent": "AF",
+      "flag": "assets/flags/ly.png",
+      "name": { "fr": "Libye",         "en": "Libya" },
+      "capital": { "fr": "Tripoli",     "en": "Tripoli" }
+    },
+    {
+      "code": "MA",
+      "continent": "AF",
+      "flag": "assets/flags/ma.png",
+      "name": { "fr": "Maroc",         "en": "Morocco" },
+      "capital": { "fr": "Rabat",       "en": "Rabat" }
+    },
+    {
+      "code": "CM",
+      "continent": "AF",
+      "flag": "assets/flags/cm.png",
+      "name": { "fr": "Cameroun",      "en": "Cameroon" },
+      "capital": { "fr": "Yaoundé",     "en": "Yaoundé" }
+    },
+    {
+      "code": "GH",
+      "continent": "AF",
+      "flag": "assets/flags/gh.png",
+      "name": { "fr": "Ghana",         "en": "Ghana" },
+      "capital": { "fr": "Accra",       "en": "Accra" }
+    },
+    {
+      "code": "GN",
+      "continent": "AF",
+      "flag": "assets/flags/gn.png",
+      "name": { "fr": "Guinée",        "en": "Guinea" },
+      "capital": { "fr": "Conakry",     "en": "Conakry" }
+    },
+    {
+      "code": "GA",
+      "continent": "AF",
+      "flag": "assets/flags/ga.png",
+      "name": { "fr": "Gabon",         "en": "Gabon" },
+      "capital": { "fr": "Libreville",  "en": "Libreville" }
+    },
+    {
+      "code": "TD",
+      "continent": "AF",
+      "flag": "assets/flags/td.png",
+      "name": { "fr": "Tchad",         "en": "Chad" },
+      "capital": { "fr": "N’Djamena",   "en": "N’Djamena" }
+    },
+    {
+      "code": "DJ",
+      "continent": "AF",
+      "flag": "assets/flags/dj.png",
+      "name": { "fr": "Djibouti",      "en": "Djibouti" },
+      "capital": { "fr": "Djibouti",    "en": "Djibouti" }
+    },
+    {
+      "code": "SN",
+      "continent": "AF",
+      "flag": "assets/flags/sn.png",
+      "name": { "fr": "Sénégal",       "en": "Senegal" },
+      "capital": { "fr": "Dakar",       "en": "Dakar" }
+    },
+    {
+      "code": "CI",
+      "continent": "AF",
+      "flag": "assets/flags/ci.png",
+      "name": { "fr": "Côte d’Ivoire", "en": "Ivory Coast" },
+      "capital": { "fr": "Yamoussoukro","en": "Yamoussoukro" }
+    },
+
+  {
+    "code": "AU",
+    "continent": "OC",
+    "flag": "assets/flags/au.png",
+    "name": {
+      "en": "Australia",
+      "fr": "Australie"
+    },
+    "capital": {
+      "en": "Canberra",
+      "fr": "Canberra"
+    }
+  },
+  {
+    "code": "CZ",
+    "continent": "EU",
+    "flag": "assets/flags/cz.png",
+    "name": {
+      "en": "Czechia",
+      "fr": "Tchéquie"
+    },
+    "capital": {
+      "en": "Prague",
+      "fr": "Prague"
+    }
+  },
+  {
+    "code": "AF",
+    "continent": "AS",
+    "flag": "assets/flags/af.png",
+    "name": {
+      "en": "Afghanistan",
+      "fr": "Afghanistan"
+    },
+    "capital": {
+      "en": "Kabul",
+      "fr": "Kabul"
+    }
+  },
+  {
+    "code": "CN",
+    "continent": "AS",
+    "flag": "assets/flags/cn.png",
+    "name": {
+      "en": "China",
+      "fr": "Chine"
+    },
+    "capital": {
+      "en": "Beijing",
+      "fr": "Beijing"
+    }
+  },
+  {
+    "code": "CK",
+    "continent": "OC",
+    "flag": "assets/flags/ck.png",
+    "name": {
+      "en": "Cook Islands",
+      "fr": "Îles Cook"
+    },
+    "capital": {
+      "en": "Avarua",
+      "fr": "Avarua"
+    }
+  },
+  {
+    "code": "BA",
+    "continent": "EU",
+    "flag": "assets/flags/ba.png",
+    "name": {
+      "en": "Bosnia and Herzegovina",
+      "fr": "Bosnie-Herzégovine"
+    },
+    "capital": {
+      "en": "Sarajevo",
+      "fr": "Sarajevo"
+    }
+  },
+  {
+    "code": "BJ",
+    "continent": "AF",
+    "flag": "assets/flags/bj.png",
+    "name": {
+      "en": "Benin",
+      "fr": "Bénin"
+    },
+    "capital": {
+      "en": "Porto-Novo",
+      "fr": "Porto-Novo"
+    }
+  },
+  {
+    "code": "AR",
+    "continent": "AM",
+    "flag": "assets/flags/ar.png",
+    "name": {
+      "en": "Argentina",
+      "fr": "Argentine"
+    },
+    "capital": {
+      "en": "Buenos Aires",
+      "fr": "Buenos Aires"
+    }
+  },
+  {
+    "code": "BH",
+    "continent": "AS",
+    "flag": "assets/flags/bh.png",
+    "name": {
+      "en": "Bahrain",
+      "fr": "Bahre´n"
+    },
+    "capital": {
+      "en": "Manama",
+      "fr": "Manama"
+    }
+  },
+  {
+    "code": "BL",
+    "continent": "AM",
+    "flag": "assets/flags/bl.png",
+    "name": {
+      "en": "Saint Barthelemy",
+      "fr": "Saint-Barthélemy"
+    },
+    "capital": {
+      "en": "Gustavia",
+      "fr": "Gustavia"
+    }
+  },
+  {
+    "code": "AM",
+    "continent": "AS",
+    "flag": "assets/flags/am.png",
+    "name": {
+      "en": "Armenia",
+      "fr": "Arménie"
+    },
+    "capital": {
+      "en": "Yerevan",
+      "fr": "Yerevan"
+    }
+  },
+  {
+    "code": "AL",
+    "continent": "EU",
+    "flag": "assets/flags/al.png",
+    "name": {
+      "en": "Albania",
+      "fr": "Albanie"
+    },
+    "capital": {
+      "en": "Tirana",
+      "fr": "Tirana"
+    }
+  },
+  {
+    "code": "BI",
+    "continent": "AF",
+    "flag": "assets/flags/bi.png",
+    "name": {
+      "en": "Burundi",
+      "fr": "Burundi"
+    },
+    "capital": {
+      "en": "Gitega",
+      "fr": "Gitega"
+    }
+  },
+  {
+    "code": "CA",
+    "continent": "AM",
+    "flag": "assets/flags/ca.png",
+    "name": {
+      "en": "Canada",
+      "fr": "Canada"
+    },
+    "capital": {
+      "en": "Ottawa",
+      "fr": "Ottawa"
+    }
+  },
+  {
+    "code": "BG",
+    "continent": "EU",
+    "flag": "assets/flags/bg.png",
+    "name": {
+      "en": "Bulgaria",
+      "fr": "Bulgarie"
+    },
+    "capital": {
+      "en": "Sofia",
+      "fr": "Sofia"
+    }
+  },
+  {
+    "code": "AS",
+    "continent": "OC",
+    "flag": "assets/flags/as.png",
+    "name": {
+      "en": "American Samoa",
+      "fr": "Samoa américaines"
+    },
+    "capital": {
+      "en": "Pago Pago",
+      "fr": "Pago Pago"
+    }
+  },
+  {
+    "code": "BF",
+    "continent": "AF",
+    "flag": "assets/flags/bf.png",
+    "name": {
+      "en": "Burkina Faso",
+      "fr": "Burkina Faso"
+    },
+    "capital": {
+      "en": "Ouagadougou",
+      "fr": "Ouagadougou"
+    }
+  },
+  {
+    "code": "BT",
+    "continent": "AS",
+    "flag": "assets/flags/bt.png",
+    "name": {
+      "en": "Bhutan",
+      "fr": "Bhoutan"
+    },
+    "capital": {
+      "en": "Thimphu",
+      "fr": "Thimphu"
+    }
+  },
+  {
+    "code": "DO",
+    "continent": "AM",
+    "flag": "assets/flags/do.png",
+    "name": {
+      "en": "Dominican Republic",
+      "fr": "République dominicaine"
+    },
+    "capital": {
+      "en": "Santo Domingo",
+      "fr": "Santo Domingo"
+    }
+  },
+  {
+    "code": "BM",
+    "continent": "AM",
+    "flag": "assets/flags/bm.png",
+    "name": {
+      "en": "Bermuda",
+      "fr": "Bermudes"
+    },
+    "capital": {
+      "en": "Hamilton",
+      "fr": "Hamilton"
+    }
+  },
+  {
+    "code": "BD",
+    "continent": "AS",
+    "flag": "assets/flags/bd.png",
+    "name": {
+      "en": "Bangladesh",
+      "fr": "Bangladesh"
+    },
+    "capital": {
+      "en": "Dhaka",
+      "fr": "Dhaka"
+    }
+  },
+  {
+    "code": "BB",
+    "continent": "AM",
+    "flag": "assets/flags/bb.png",
+    "name": {
+      "en": "Barbados",
+      "fr": "Barbade"
+    },
+    "capital": {
+      "en": "Bridgetown",
+      "fr": "Bridgetown"
+    }
+  },
+  {
+    "code": "BY",
+    "continent": "EU",
+    "flag": "assets/flags/by.png",
+    "name": {
+      "en": "Belarus",
+      "fr": "Biélorussie"
+    },
+    "capital": {
+      "en": "Minsk",
+      "fr": "Minsk"
+    }
+  },
+  {
+    "code": "CO",
+    "continent": "AM",
+    "flag": "assets/flags/co.png",
+    "name": {
+      "en": "Colombia",
+      "fr": "Colombie"
+    },
+    "capital": {
+      "en": "Bogotß",
+      "fr": "Bogotß"
+    }
+  },
+  {
+    "code": "CD",
+    "continent": "AF",
+    "flag": "assets/flags/cd.png",
+    "name": {
+      "en": "DR Congo",
+      "fr": "Congo (Rép. dém.)"
+    },
+    "capital": {
+      "en": "Kinshasa",
+      "fr": "Kinshasa"
+    }
+  },
+  {
+    "code": "BE",
+    "continent": "EU",
+    "flag": "assets/flags/be.png",
+    "name": {
+      "en": "Belgium",
+      "fr": "Belgique"
+    },
+    "capital": {
+      "en": "Brussels",
+      "fr": "Brussels"
+    }
+  },
+  {
+    "code": "BN",
+    "continent": "AS",
+    "flag": "assets/flags/bn.png",
+    "name": {
+      "en": "Brunei",
+      "fr": "Brunei"
+    },
+    "capital": {
+      "en": "Bandar Seri Begawan",
+      "fr": "Bandar Seri Begawan"
+    }
+  },
+  {
+    "code": "CR",
+    "continent": "AM",
+    "flag": "assets/flags/cr.png",
+    "name": {
+      "en": "Costa Rica",
+      "fr": "Costa Rica"
+    },
+    "capital": {
+      "en": "San José",
+      "fr": "San José"
+    }
+  },
+  {
+    "code": "AT",
+    "continent": "EU",
+    "flag": "assets/flags/at.png",
+    "name": {
+      "en": "Austria",
+      "fr": "Autriche"
+    },
+    "capital": {
+      "en": "Vienna",
+      "fr": "Vienna"
+    }
+  },
+  {
+    "code": "BS",
+    "continent": "AM",
+    "flag": "assets/flags/bs.png",
+    "name": {
+      "en": "Bahamas",
+      "fr": "Bahamas"
+    },
+    "capital": {
+      "en": "Nassau",
+      "fr": "Nassau"
+    }
+  },
+  {
+    "code": "CG",
+    "continent": "AF",
+    "flag": "assets/flags/cg.png",
+    "name": {
+      "en": "Republic of the Congo",
+      "fr": "Congo"
+    },
+    "capital": {
+      "en": "Brazzaville",
+      "fr": "Brazzaville"
+    }
+  },
+  {
+    "code": "CU",
+    "continent": "AM",
+    "flag": "assets/flags/cu.png",
+    "name": {
+      "en": "Cuba",
+      "fr": "Cuba"
+    },
+    "capital": {
+      "en": "Havana",
+      "fr": "Havana"
+    }
+  },
+  {
+    "code": "BR",
+    "continent": "AM",
+    "flag": "assets/flags/br.png",
+    "name": {
+      "en": "Brazil",
+      "fr": "Brésil"
+    },
+    "capital": {
+      "en": "BrasÝlia",
+      "fr": "BrasÝlia"
+    }
+  },
+  {
+    "code": "DM",
+    "continent": "AM",
+    "flag": "assets/flags/dm.png",
+    "name": {
+      "en": "Dominica",
+      "fr": "Dominique"
+    },
+    "capital": {
+      "en": "Roseau",
+      "fr": "Roseau"
+    }
+  },
+  {
+    "code": "AI",
+    "continent": "AM",
+    "flag": "assets/flags/ai.png",
+    "name": {
+      "en": "Anguilla",
+      "fr": "Anguilla"
+    },
+    "capital": {
+      "en": "The Valley",
+      "fr": "The Valley"
+    }
+  },
+  {
+    "code": "CF",
+    "continent": "AF",
+    "flag": "assets/flags/cf.png",
+    "name": {
+      "en": "Central African Republic",
+      "fr": "République centrafricaine"
+    },
+    "capital": {
+      "en": "Bangui",
+      "fr": "Bangui"
+    }
+  },
+  {
+    "code": "DZ",
+    "continent": "AF",
+    "flag": "assets/flags/dz.png",
+    "name": {
+      "en": "Algeria",
+      "fr": "Algérie"
+    },
+    "capital": {
+      "en": "Algiers",
+      "fr": "Alger"
+    }
+  },
+  {
+    "code": "BO",
+    "continent": "AM",
+    "flag": "assets/flags/bo.png",
+    "name": {
+      "en": "Bolivia",
+      "fr": "Bolivie"
+    },
+    "capital": {
+      "en": "Sucre",
+      "fr": "Sucre"
+    }
+  },
+  {
+    "code": "CY",
+    "continent": "EU",
+    "flag": "assets/flags/cy.png",
+    "name": {
+      "en": "Cyprus",
+      "fr": "Chypre"
+    },
+    "capital": {
+      "en": "Nicosia",
+      "fr": "Nicosie"
+    }
+  },
+  {
+    "code": "AG",
+    "continent": "AM",
+    "flag": "assets/flags/ag.png",
+    "name": {
+      "en": "Antigua and Barbuda",
+      "fr": "Antigua-et-Barbuda"
+    },
+    "capital": {
+      "en": "Saint John's",
+      "fr": "Saint John's"
+    }
+  },
+  {
+    "code": "AO",
+    "continent": "AF",
+    "flag": "assets/flags/ao.png",
+    "name": {
+      "en": "Angola",
+      "fr": "Angola"
+    },
+    "capital": {
+      "en": "Luanda",
+      "fr": "Luanda"
+    }
+  },
+  {
+    "code": "AX",
+    "continent": "EU",
+    "flag": "assets/flags/ax.png",
+    "name": {
+      "en": "Aland Islands",
+      "fr": "Ahvenanmaa"
+    },
+    "capital": {
+      "en": "Mariehamn",
+      "fr": "Mariehamn"
+    }
+  },
+  {
+    "code": "CL",
+    "continent": "AM",
+    "flag": "assets/flags/cl.png",
+    "name": {
+      "en": "Chile",
+      "fr": "Chili"
+    },
+    "capital": {
+      "en": "Santiago",
+      "fr": "Santiago"
+    }
+  },
+  {
+    "code": "AZ",
+    "continent": "AS",
+    "flag": "assets/flags/az.png",
+    "name": {
+      "en": "Azerbaijan",
+      "fr": "Azerbaïdjan"
+    },
+    "capital": {
+      "en": "Baku",
+      "fr": "Bakou"
+    }
+  },
+  {
+    "code": "AE",
+    "continent": "AS",
+    "flag": "assets/flags/ae.png",
+    "name": {
+      "en": "United Arab Emirates",
+      "fr": "émirats arabes unis"
+    },
+    "capital": {
+      "en": "Abu Dhabi",
+      "fr": "Abou Dhabi"
+    }
+  },
+  {
+    "code": "AW",
+    "continent": "AM",
+    "flag": "assets/flags/aw.png",
+    "name": {
+      "en": "Aruba",
+      "fr": "Aruba"
+    },
+    "capital": {
+      "en": "Oranjestad",
+      "fr": "Oranjestad"
+    }
+  },
+  {
+    "code": "DK",
+    "continent": "EU",
+    "flag": "assets/flags/dk.png",
+    "name": {
+      "en": "Denmark",
+      "fr": "Danemark"
+    },
+    "capital": {
+      "en": "Copenhagen",
+      "fr": "Copenhague"
+    }
+  },
+  {
+    "code": "BW",
+    "continent": "AF",
+    "flag": "assets/flags/bw.png",
+    "name": {
+      "en": "Botswana",
+      "fr": "Botswana"
+    },
+    "capital": {
+      "en": "Gaborone",
+      "fr": "Gaborone"
+    }
+  },
+  {
+    "code": "AD",
+    "continent": "EU",
+    "flag": "assets/flags/ad.png",
+    "name": {
+      "en": "Andorra",
+      "fr": "Andorre"
+    },
+    "capital": {
+      "en": "Andorra la Vella",
+      "fr": "Andorre la Vieille"
+    }
+  },
+  {
+    "code": "AQ",
+    "continent": "AN",
+    "flag": "assets/flags/aq.png",
+    "name": {
+      "en": "Antarctica",
+      "fr": "Antarctique"
+    },
+    "capital": {
+      "en": "",
+      "fr": ""
+    }
+  },
+  {
+    "code": "CW",
+    "continent": "AM",
+    "flag": "assets/flags/cw.png",
+    "name": {
+      "en": "Curaþao",
+      "fr": "Curaþao"
+    },
+    "capital": {
+      "en": "Willemstad",
+      "fr": "Willemstad"
+    }
+  },
+  {
+    "code": "BZ",
+    "continent": "AM",
+    "flag": "assets/flags/bz.png",
+    "name": {
+      "en": "Belize",
+      "fr": "Belize"
+    },
+    "capital": {
+      "en": "Belmopan",
+      "fr": "Belmopan"
+    }
+  },
+  {
+    "code": "CH",
+    "continent": "EU",
+    "flag": "assets/flags/ch.png",
+    "name": {
+      "en": "Switzerland",
+      "fr": "Suisse"
+    },
+    "capital": {
+      "en": "Bern",
+      "fr": "Bern"
+    }
+  },
+  {
+    "code": "CV",
+    "continent": "AF",
+    "flag": "assets/flags/cv.png",
+    "name": {
+      "en": "Cape Verde",
+      "fr": "Îles du Cap-Vert"
+    },
+    "capital": {
+      "en": "Praia",
+      "fr": "Praia"
+    }
+  },
+
+  {
+    "code": "EC",
+    "continent": "AM",
+    "flag": "assets/flags/ec.png",
+    "name": {
+      "en": "Ecuador",
+      "fr": "Équateur"
+    },
+    "capital": {
+      "en": "Quito",
+      "fr": "Quito"
+    }
+  },
+  {
+    "code": "EE",
+    "continent": "EU",
+    "flag": "assets/flags/ee.png",
+    "name": {
+      "en": "Estonia",
+      "fr": "Estonie"
+    },
+    "capital": {
+      "en": "Tallinn",
+      "fr": "Tallinn"
+    }
+  },
+  {
+    "code": "EG",
+    "continent": "AF",
+    "flag": "assets/flags/eg.png",
+    "name": {
+      "en": "Egypt",
+      "fr": "Égypte"
+    },
+    "capital": {
+      "en": "Cairo",
+      "fr": "Le Caire"
+    }
+  },
+  {
+    "code": "ER",
+    "continent": "AF",
+    "flag": "assets/flags/er.png",
+    "name": {
+      "en": "Eritrea",
+      "fr": "Érythrée"
+    },
+    "capital": {
+      "en": "Asmara",
+      "fr": "Asmara"
+    }
+  },
+  {
+    "code": "ES",
+    "continent": "EU",
+    "flag": "assets/flags/es.png",
+    "name": {
+      "en": "Spain",
+      "fr": "Espagne"
+    },
+    "capital": {
+      "en": "Madrid",
+      "fr": "Madrid"
+    }
+  },
+  {
+    "code": "ET",
+    "continent": "AF",
+    "flag": "assets/flags/et.png",
+    "name": {
+      "en": "Ethiopia",
+      "fr": "Éthiopie"
+    },
+    "capital": {
+      "en": "Addis Ababa",
+      "fr": "Addis Abeba"
+    }
+  },
+  {
+    "code": "FI",
+    "continent": "EU",
+    "flag": "assets/flags/fi.png",
+    "name": {
+      "en": "Finland",
+      "fr": "Finlande"
+    },
+    "capital": {
+      "en": "Helsinki",
+      "fr": "Helsinki"
+    }
+  },
+  {
+    "code": "FJ",
+    "continent": "OC",
+    "flag": "assets/flags/fj.png",
+    "name": {
+      "en": "Fiji",
+      "fr": "Fidji"
+    },
+    "capital": {
+      "en": "Suva",
+      "fr": "Suva"
+    }
+  },
+  {
+    "code": "FK",
+    "continent": "AM",
+    "flag": "assets/flags/fk.png",
+    "name": {
+      "en": "Falkland Islands",
+      "fr": "Îles Malouines"
+    },
+    "capital": {
+      "en": "Stanley",
+      "fr": "Stanley"
+    }
+  },
+  {
+    "code": "FM",
+    "continent": "OC",
+    "flag": "assets/flags/fm.png",
+    "name": {
+      "en": "Micronesia",
+      "fr": "Micronésie"
+    },
+    "capital": {
+      "en": "Palikir",
+      "fr": "Palikir"
+    }
+  },
+  {
+    "code": "FO",
+    "continent": "EU",
+    "flag": "assets/flags/fo.png",
+    "name": {
+      "en": "Faroe Islands",
+      "fr": "Îles Féroé"
+    },
+    "capital": {
+      "en": "Torshavn",
+      "fr": "Torshavn"
+    }
+  },
+  {
+    "code": "GB",
+    "continent": "EU",
+    "flag": "assets/flags/gb.png",
+    "name": {
+      "en": "United Kingdom",
+      "fr": "Royaume-Uni"
+    },
+    "capital": {
+      "en": "London",
+      "fr": "Londres"
+    }
+  },
+  {
+    "code": "GD",
+    "continent": "AM",
+    "flag": "assets/flags/gd.png",
+    "name": {
+      "en": "Grenada",
+      "fr": "Grenade"
+    },
+    "capital": {
+      "en": "St. George's",
+      "fr": "St. George's"
+    }
+  },
+  {
+    "code": "GE",
+    "continent": "AS",
+    "flag": "assets/flags/ge.png",
+    "name": {
+      "en": "Georgia",
+      "fr": "Géorgie"
+    },
+    "capital": {
+      "en": "Tbilisi",
+      "fr": "Tbilissi"
+    }
+  },
+  {
+    "code": "GG",
+    "continent": "EU",
+    "flag": "assets/flags/gg.png",
+    "name": {
+      "en": "Guernsey",
+      "fr": "Guernesey"
+    },
+    "capital": {
+      "en": "St. Peter Port",
+      "fr": "St. Peter Port"
+    }
+  },
+  {
+    "code": "GI",
+    "continent": "EU",
+    "flag": "assets/flags/gi.png",
+    "name": {
+      "en": "Gibraltar",
+      "fr": "Gibraltar"
+    },
+    "capital": {
+      "en": "Gibraltar",
+      "fr": "Gibraltar"
+    }
+  },
+  {
+    "code": "GL",
+    "continent": "AM",
+    "flag": "assets/flags/gl.png",
+    "name": {
+      "en": "Greenland",
+      "fr": "Groenland"
+    },
+    "capital": {
+      "en": "Nuuk",
+      "fr": "Nuuk"
+    }
+  },
+  {
+    "code": "GM",
+    "continent": "AF",
+    "flag": "assets/flags/gm.png",
+    "name": {
+      "en": "Gambia",
+      "fr": "Gambie"
+    },
+    "capital": {
+      "en": "Banjul",
+      "fr": "Banjul"
+    }
+  },
+  {
+    "code": "GQ",
+    "continent": "AF",
+    "flag": "assets/flags/gq.png",
+    "name": {
+      "en": "Equatorial Guinea",
+      "fr": "Guinée équatoriale"
+    },
+    "capital": {
+      "en": "Malabo",
+      "fr": "Malabo"
+    }
+  },
+  {
+    "code": "GR",
+    "continent": "EU",
+    "flag": "assets/flags/gr.png",
+    "name": {
+      "en": "Greece",
+      "fr": "Grèce"
+    },
+    "capital": {
+      "en": "Athens",
+      "fr": "Athènes"
+    }
+  },
+  {
+    "code": "GS",
+    "continent": "AN",
+    "flag": "assets/flags/gs.png",
+    "name": {
+      "en": "South Georgia",
+      "fr": "Géorgie du Sud-et-les Îles Sandwich du Sud"
+    },
+    "capital": {
+      "en": "King Edward Point",
+      "fr": "King Edward Point"
+    }
+  },
+  {
+    "code": "GT",
+    "continent": "AM",
+    "flag": "assets/flags/gt.png",
+    "name": {
+      "en": "Guatemala",
+      "fr": "Guatemala"
+    },
+    "capital": {
+      "en": "Guatemala City",
+      "fr": "Guatemala City"
+    }
+  },
+  {
+    "code": "GU",
+    "continent": "OC",
+    "flag": "assets/flags/gu.png",
+    "name": {
+      "en": "Guam",
+      "fr": "Guam"
+    },
+    "capital": {
+      "en": "Hagåtña",
+      "fr": "Hagåtña"
+    }
+  },
+  {
+    "code": "GW",
+    "continent": "AF",
+    "flag": "assets/flags/gw.png",
+    "name": {
+      "en": "Guinea-Bissau",
+      "fr": "Guinée-Bissau"
+    },
+    "capital": {
+      "en": "Bissau",
+      "fr": "Bissau"
+    }
+  },
+  {
+    "code": "GY",
+    "continent": "AM",
+    "flag": "assets/flags/gy.png",
+    "name": {
+      "en": "Guyana",
+      "fr": "Guyana"
+    },
+    "capital": {
+      "en": "Georgetown",
+      "fr": "Georgetown"
+    }
+  },
+  {
+    "code": "HK",
+    "continent": "AS",
+    "flag": "assets/flags/hk.png",
+    "name": {
+      "en": "Hong Kong",
+      "fr": "Hong Kong"
+    },
+    "capital": {
+      "en": "City of Victoria",
+      "fr": "City of Victoria"
+    }
+  },
+  {
+    "code": "HM",
+    "continent": "AN",
+    "flag": "assets/flags/hm.png",
+    "name": {
+      "en": "Heard Island and McDonald Islands",
+      "fr": "Îles Heard-et-MacDonald"
+    },
+    "capital": {
+      "en": "",
+      "fr": ""
+    }
+  },
+  {
+    "code": "HN",
+    "continent": "AM",
+    "flag": "assets/flags/hn.png",
+    "name": {
+      "en": "Honduras",
+      "fr": "Honduras"
+    },
+    "capital": {
+      "en": "Tegucigalpa",
+      "fr": "Tegucigalpa"
+    }
+  },
+  {
+    "code": "HR",
+    "continent": "EU",
+    "flag": "assets/flags/hr.png",
+    "name": {
+      "en": "Croatia",
+      "fr": "Croatie"
+    },
+    "capital": {
+      "en": "Zagreb",
+      "fr": "Zagreb"
+    }
+  },
+  {
+    "code": "HT",
+    "continent": "AM",
+    "flag": "assets/flags/ht.png",
+    "name": {
+      "en": "Haiti",
+      "fr": "Haïti"
+    },
+    "capital": {
+      "en": "Port-au-Prince",
+      "fr": "Port-au-Prince"
+    }
+  },
+  {
+    "code": "HU",
+    "continent": "EU",
+    "flag": "assets/flags/hu.png",
+    "name": {
+      "en": "Hungary",
+      "fr": "Hongrie"
+    },
+    "capital": {
+      "en": "Budapest",
+      "fr": "Budapest"
+    }
+  },
+  {
+    "code": "ID",
+    "continent": "AS",
+    "flag": "assets/flags/id.png",
+    "name": {
+      "en": "Indonesia",
+      "fr": "Indonésie"
+    },
+    "capital": {
+      "en": "Jakarta",
+      "fr": "Jakarta"
+    }
+  },
+  {
+    "code": "IE",
+    "continent": "EU",
+    "flag": "assets/flags/ie.png",
+    "name": {
+      "en": "Ireland",
+      "fr": "Irlande"
+    },
+    "capital": {
+      "en": "Dublin",
+      "fr": "Dublin"
+    }
+  },
+  {
+    "code": "IL",
+    "continent": "AS",
+    "flag": "assets/flags/il.png",
+    "name": {
+      "en": "Israel",
+      "fr": "Israël"
+    },
+    "capital": {
+      "en": "Jerusalem",
+      "fr": "Jerusalem"
+    }
+  },
+  {
+    "code": "IM",
+    "continent": "EU",
+    "flag": "assets/flags/im.png",
+    "name": {
+      "en": "Isle of Man",
+      "fr": "Île de Man"
+    },
+    "capital": {
+      "en": "Douglas",
+      "fr": "Douglas"
+    }
+  },
+  {
+    "code": "IN",
+    "continent": "AS",
+    "flag": "assets/flags/in.png",
+    "name": {
+      "en": "India",
+      "fr": "Inde"
+    },
+    "capital": {
+      "en": "New Delhi",
+      "fr": "New Delhi"
+    }
+  },
+  {
+    "code": "IQ",
+    "continent": "AS",
+    "flag": "assets/flags/iq.png",
+    "name": {
+      "en": "Iraq",
+      "fr": "Irak"
+    },
+    "capital": {
+      "en": "Baghdad",
+      "fr": "Baghdad"
+    }
+  },
+  {
+    "code": "IR",
+    "continent": "AS",
+    "flag": "assets/flags/ir.png",
+    "name": {
+      "en": "Iran",
+      "fr": "Iran"
+    },
+    "capital": {
+      "en": "Tehran",
+      "fr": "Tehran"
+    }
+  },
+  {
+    "code": "IS",
+    "continent": "EU",
+    "flag": "assets/flags/is.png",
+    "name": {
+      "en": "Iceland",
+      "fr": "Islande"
+    },
+    "capital": {
+      "en": "Reykjavik",
+      "fr": "Reykjavik"
+    }
+  },
+  {
+    "code": "IT",
+    "continent": "EU",
+    "flag": "assets/flags/it.png",
+    "name": {
+      "en": "Italy",
+      "fr": "Italie"
+    },
+    "capital": {
+      "en": "Rome",
+      "fr": "Rome"
+    }
+  },
+  {
+    "code": "JE",
+    "continent": "EU",
+    "flag": "assets/flags/je.png",
+    "name": {
+      "en": "Jersey",
+      "fr": "Jersey"
+    },
+    "capital": {
+      "en": "Saint Helier",
+      "fr": "Saint Helier"
+    }
+  },
+  {
+    "code": "JM",
+    "continent": "AM",
+    "flag": "assets/flags/jm.png",
+    "name": {
+      "en": "Jamaica",
+      "fr": "Jamaïque"
+    },
+    "capital": {
+      "en": "Kingston",
+      "fr": "Kingston"
+    }
+  },
+  {
+    "code": "JO",
+    "continent": "AS",
+    "flag": "assets/flags/jo.png",
+    "name": {
+      "en": "Jordan",
+      "fr": "Jordanie"
+    },
+    "capital": {
+      "en": "Amman",
+      "fr": "Amman"
+    }
+  },
+  {
+    "code": "KE",
+    "continent": "AF",
+    "flag": "assets/flags/ke.png",
+    "name": {
+      "en": "Kenya",
+      "fr": "Kenya"
+    },
+    "capital": {
+      "en": "Nairobi",
+      "fr": "Nairobi"
+    }
+  },
+  {
+    "code": "KG",
+    "continent": "AS",
+    "flag": "assets/flags/kg.png",
+    "name": {
+      "en": "Kyrgyzstan",
+      "fr": "Kirghizistan"
+    },
+    "capital": {
+      "en": "Bishkek",
+      "fr": "Bishkek"
+    }
+  },
+  {
+    "code": "KH",
+    "continent": "AS",
+    "flag": "assets/flags/kh.png",
+    "name": {
+      "en": "Cambodia",
+      "fr": "Cambodge"
+    },
+    "capital": {
+      "en": "Phnom Penh",
+      "fr": "Phnom Penh"
+    }
+  },
+  {
+    "code": "KI",
+    "continent": "OC",
+    "flag": "assets/flags/ki.png",
+    "name": {
+      "en": "Kiribati",
+      "fr": "Kiribati"
+    },
+    "capital": {
+      "en": "South Tarawa",
+      "fr": "South Tarawa"
+    }
+  },
+  {
+    "code": "KM",
+    "continent": "AF",
+    "flag": "assets/flags/km.png",
+    "name": {
+      "en": "Comoros",
+      "fr": "Comores"
+    },
+    "capital": {
+      "en": "Moroni",
+      "fr": "Moroni"
+    }
+  },
+  {
+    "code": "KN",
+    "continent": "AM",
+    "flag": "assets/flags/kn.png",
+    "name": {
+      "en": "Saint Kitts and Nevis",
+      "fr": "Saint-Christophe-et-Niévès"
+    },
+    "capital": {
+      "en": "Basseterre",
+      "fr": "Basseterre"
+    }
+  },
+  {
+    "code": "KP",
+    "continent": "AS",
+    "flag": "assets/flags/kp.png",
+    "name": {
+      "en": "North Korea",
+      "fr": "Corée du Nord"
+    },
+    "capital": {
+      "en": "Pyongyang",
+      "fr": "Pyongyang"
+    }
+  },
+  {
+    "code": "KR",
+    "continent": "AS",
+    "flag": "assets/flags/kr.png",
+    "name": {
+      "en": "South Korea",
+      "fr": "Corée du Sud"
+    },
+    "capital": {
+      "en": "Seoul",
+      "fr": "Seoul"
+    }
+  },
+  {
+    "code": "KW",
+    "continent": "AS",
+    "flag": "assets/flags/kw.png",
+    "name": {
+      "en": "Kuwait",
+      "fr": "Koweït"
+    },
+    "capital": {
+      "en": "Kuwait City",
+      "fr": "Kuwait City"
+    }
+  },
+  {
+    "code": "KY",
+    "continent": "AM",
+    "flag": "assets/flags/ky.png",
+    "name": {
+      "en": "Cayman Islands",
+      "fr": "Îles Caïmans"
+    },
+    "capital": {
+      "en": "George Town",
+      "fr": "George Town"
+    }
+  },
+  {
+    "code": "KZ",
+    "continent": "AS",
+    "flag": "assets/flags/kz.png",
+    "name": {
+      "en": "Kazakhstan",
+      "fr": "Kazakhstan"
+    },
+    "capital": {
+      "en": "Astana",
+      "fr": "Astana"
+    }
+  },
+  {
+    "code": "LA",
+    "continent": "AS",
+    "flag": "assets/flags/la.png",
+    "name": {
+      "en": "Laos",
+      "fr": "Laos"
+    },
+    "capital": {
+      "en": "Vientiane",
+      "fr": "Vientiane"
+    }
+  },
+  {
+    "code": "LB",
+    "continent": "AS",
+    "flag": "assets/flags/lb.png",
+    "name": {
+      "en": "Lebanon",
+      "fr": "Liban"
+    },
+    "capital": {
+      "en": "Beirut",
+      "fr": "Beirut"
+    }
+  },
+  {
+    "code": "LC",
+    "continent": "AM",
+    "flag": "assets/flags/lc.png",
+    "name": {
+      "en": "Saint Lucia",
+      "fr": "Sainte-Lucie"
+    },
+    "capital": {
+      "en": "Castries",
+      "fr": "Castries"
+    }
+  },
+  {
+    "code": "LI",
+    "continent": "EU",
+    "flag": "assets/flags/li.png",
+    "name": {
+      "en": "Liechtenstein",
+      "fr": "Liechtenstein"
+    },
+    "capital": {
+      "en": "Vaduz",
+      "fr": "Vaduz"
+    }
+  },
+  {
+    "code": "LK",
+    "continent": "AS",
+    "flag": "assets/flags/lk.png",
+    "name": {
+      "en": "Sri Lanka",
+      "fr": "Sri Lanka"
+    },
+    "capital": {
+      "en": "Sri Jayawardenepura Kotte",
+      "fr": "Sri Jayawardenepura Kotte"
+    }
+  },
+  {
+    "code": "LR",
+    "continent": "AF",
+    "flag": "assets/flags/lr.png",
+    "name": {
+      "en": "Liberia",
+      "fr": "Liberia"
+    },
+    "capital": {
+      "en": "Monrovia",
+      "fr": "Monrovia"
+    }
+  },
+  {
+    "code": "LS",
+    "continent": "AF",
+    "flag": "assets/flags/ls.png",
+    "name": {
+      "en": "Lesotho",
+      "fr": "Lesotho"
+    },
+    "capital": {
+      "en": "Maseru",
+      "fr": "Maseru"
+    }
+  },
+  {
+    "code": "LT",
+    "continent": "EU",
+    "flag": "assets/flags/lt.png",
+    "name": {
+      "en": "Lithuania",
+      "fr": "Lituanie"
+    },
+    "capital": {
+      "en": "Vilnius",
+      "fr": "Vilnius"
+    }
+  },
+  {
+    "code": "LU",
+    "continent": "EU",
+    "flag": "assets/flags/lu.png",
+    "name": {
+      "en": "Luxembourg",
+      "fr": "Luxembourg"
+    },
+    "capital": {
+      "en": "Luxembourg",
+      "fr": "Luxembourg"
+    }
+  },
+  {
+    "code": "LV",
+    "continent": "EU",
+    "flag": "assets/flags/lv.png",
+    "name": {
+      "en": "Latvia",
+      "fr": "Lettonie"
+    },
+    "capital": {
+      "en": "Riga",
+      "fr": "Riga"
+    }
+  },
+  {
+    "code": "MC",
+    "continent": "EU",
+    "flag": "assets/flags/mc.png",
+    "name": {
+      "en": "Monaco",
+      "fr": "Monaco"
+    },
+    "capital": {
+      "en": "Monaco",
+      "fr": "Monaco"
+    }
+  },
+  {
+    "code": "MD",
+    "continent": "EU",
+    "flag": "assets/flags/md.png",
+    "name": {
+      "en": "Moldova",
+      "fr": "Moldavie"
+    },
+    "capital": {
+      "en": "Chișinău",
+      "fr": "Chișinău"
+    }
+  },
+  {
+    "code": "ME",
+    "continent": "EU",
+    "flag": "assets/flags/me.png",
+    "name": {
+      "en": "Montenegro",
+      "fr": "Monténégro"
+    },
+    "capital": {
+      "en": "Podgorica",
+      "fr": "Podgorica"
+    }
+  },
+  {
+    "code": "MF",
+    "continent": "AM",
+    "flag": "assets/flags/mf.png",
+    "name": {
+      "en": "Saint Martin",
+      "fr": "Saint-Martin"
+    },
+    "capital": {
+      "en": "Marigot",
+      "fr": "Marigot"
+    }
+  },
+  {
+    "code": "MG",
+    "continent": "AF",
+    "flag": "assets/flags/mg.png",
+    "name": {
+      "en": "Madagascar",
+      "fr": "Madagascar"
+    },
+    "capital": {
+      "en": "Antananarivo",
+      "fr": "Antananarivo"
+    }
+  },
+  {
+    "code": "MH",
+    "continent": "OC",
+    "flag": "assets/flags/mh.png",
+    "name": {
+      "en": "Marshall Islands",
+      "fr": "Îles Marshall"
+    },
+    "capital": {
+      "en": "Majuro",
+      "fr": "Majuro"
+    }
+  },
+  {
+    "code": "MK",
+    "continent": "EU",
+    "flag": "assets/flags/mk.png",
+    "name": {
+      "en": "North Macedonia",
+      "fr": "Macédoine du Nord"
+    },
+    "capital": {
+      "en": "Skopje",
+      "fr": "Skopje"
+    }
+  },
+  {
+    "code": "ML",
+    "continent": "AF",
+    "flag": "assets/flags/ml.png",
+    "name": {
+      "en": "Mali",
+      "fr": "Mali"
+    },
+    "capital": {
+      "en": "Bamako",
+      "fr": "Bamako"
+    }
+  },
+  {
+    "code": "MM",
+    "continent": "AS",
+    "flag": "assets/flags/mm.png",
+    "name": {
+      "en": "Myanmar",
+      "fr": "Birmanie"
+    },
+    "capital": {
+      "en": "Naypyidaw",
+      "fr": "Naypyidaw"
+    }
+  },
+  {
+    "code": "MN",
+    "continent": "AS",
+    "flag": "assets/flags/mn.png",
+    "name": {
+      "en": "Mongolia",
+      "fr": "Mongolie"
+    },
+    "capital": {
+      "en": "Ulan Bator",
+      "fr": "Ulan Bator"
+    }
+  },
+  {
+    "code": "MO",
+    "continent": "AS",
+    "flag": "assets/flags/mo.png",
+    "name": {
+      "en": "Macau",
+      "fr": "Macao"
+    },
+    "capital": {
+      "en": "",
+      "fr": ""
+    }
+  },
+  {
+    "code": "MP",
+    "continent": "OC",
+    "flag": "assets/flags/mp.png",
+    "name": {
+      "en": "Northern Mariana Islands",
+      "fr": "Îles Mariannes du Nord"
+    },
+    "capital": {
+      "en": "Saipan",
+      "fr": "Saipan"
+    }
+  },
+  {
+    "code": "MR",
+    "continent": "AF",
+    "flag": "assets/flags/mr.png",
+    "name": {
+      "en": "Mauritania",
+      "fr": "Mauritanie"
+    },
+    "capital": {
+      "en": "Nouakchott",
+      "fr": "Nouakchott"
+    }
+  },
+  {
+    "code": "MS",
+    "continent": "AM",
+    "flag": "assets/flags/ms.png",
+    "name": {
+      "en": "Montserrat",
+      "fr": "Montserrat"
+    },
+    "capital": {
+      "en": "Plymouth",
+      "fr": "Plymouth"
+    }
+  },
+  {
+    "code": "MT",
+    "continent": "EU",
+    "flag": "assets/flags/mt.png",
+    "name": {
+      "en": "Malta",
+      "fr": "Malte"
+    },
+    "capital": {
+      "en": "Valletta",
+      "fr": "Valletta"
+    }
+  },
+  {
+    "code": "MU",
+    "continent": "AF",
+    "flag": "assets/flags/mu.png",
+    "name": {
+      "en": "Mauritius",
+      "fr": "Île Maurice"
+    },
+    "capital": {
+      "en": "Port Louis",
+      "fr": "Port Louis"
+    }
+  },
+  {
+    "code": "MV",
+    "continent": "AS",
+    "flag": "assets/flags/mv.png",
+    "name": {
+      "en": "Maldives",
+      "fr": "Maldives"
+    },
+    "capital": {
+      "en": "Malé",
+      "fr": "Malé"
+    }
+  },
+  {
+    "code": "MW",
+    "continent": "AF",
+    "flag": "assets/flags/mw.png",
+    "name": {
+      "en": "Malawi",
+      "fr": "Malawi"
+    },
+    "capital": {
+      "en": "Lilongwe",
+      "fr": "Lilongwe"
+    }
+  },
+  {
+    "code": "MX",
+    "continent": "AM",
+    "flag": "assets/flags/mx.png",
+    "name": {
+      "en": "Mexico",
+      "fr": "Mexique"
+    },
+    "capital": {
+      "en": "Mexico City",
+      "fr": "Mexico City"
+    }
+  },
+  {
+    "code": "MY",
+    "continent": "AS",
+    "flag": "assets/flags/my.png",
+    "name": {
+      "en": "Malaysia",
+      "fr": "Malaisie"
+    },
+    "capital": {
+      "en": "Kuala Lumpur",
+      "fr": "Kuala Lumpur"
+    }
+  },
+  {
+    "code": "MZ",
+    "continent": "AF",
+    "flag": "assets/flags/mz.png",
+    "name": {
+      "en": "Mozambique",
+      "fr": "Mozambique"
+    },
+    "capital": {
+      "en": "Maputo",
+      "fr": "Maputo"
+    }
+  },
+  {
+    "code": "NA",
+    "continent": "AF",
+    "flag": "assets/flags/na.png",
+    "name": {
+      "en": "Namibia",
+      "fr": "Namibie"
+    },
+    "capital": {
+      "en": "Windhoek",
+      "fr": "Windhoek"
+    }
+  },
+  {
+    "code": "NC",
+    "continent": "OC",
+    "flag": "assets/flags/nc.png",
+    "name": {
+      "en": "New Caledonia",
+      "fr": "Nouvelle-Calédonie"
+    },
+    "capital": {
+      "en": "Nouméa",
+      "fr": "Nouméa"
+    }
+  },
+  {
+    "code": "NE",
+    "continent": "AF",
+    "flag": "assets/flags/ne.png",
+    "name": {
+      "en": "Niger",
+      "fr": "Niger"
+    },
+    "capital": {
+      "en": "Niamey",
+      "fr": "Niamey"
+    }
+  },
+  {
+    "code": "NF",
+    "continent": "OC",
+    "flag": "assets/flags/nf.png",
+    "name": {
+      "en": "Norfolk Island",
+      "fr": "Île Norfolk"
+    },
+    "capital": {
+      "en": "Kingston",
+      "fr": "Kingston"
+    }
+  },
+  {
+    "code": "NG",
+    "continent": "AF",
+    "flag": "assets/flags/ng.png",
+    "name": {
+      "en": "Nigeria",
+      "fr": "Nigéria"
+    },
+    "capital": {
+      "en": "Abuja",
+      "fr": "Abuja"
+    }
+  },
+  {
+    "code": "NI",
+    "continent": "AM",
+    "flag": "assets/flags/ni.png",
+    "name": {
+      "en": "Nicaragua",
+      "fr": "Nicaragua"
+    },
+    "capital": {
+      "en": "Managua",
+      "fr": "Managua"
+    }
+  },
+  {
+    "code": "NL",
+    "continent": "EU",
+    "flag": "assets/flags/nl.png",
+    "name": {
+      "en": "Netherlands",
+      "fr": "Pays-Bas"
+    },
+    "capital": {
+      "en": "Amsterdam",
+      "fr": "Amsterdam"
+    }
+  },
+  {
+    "code": "NP",
+    "continent": "AS",
+    "flag": "assets/flags/np.png",
+    "name": {
+      "en": "Nepal",
+      "fr": "Népal"
+    },
+    "capital": {
+      "en": "Kathmandu",
+      "fr": "Kathmandu"
+    }
+  },
+  {
+    "code": "NR",
+    "continent": "OC",
+    "flag": "assets/flags/nr.png",
+    "name": {
+      "en": "Nauru",
+      "fr": "Nauru"
+    },
+    "capital": {
+      "en": "Yaren",
+      "fr": "Yaren"
+    }
+  },
+  {
+    "code": "NU",
+    "continent": "OC",
+    "flag": "assets/flags/nu.png",
+    "name": {
+      "en": "Niue",
+      "fr": "Niue"
+    },
+    "capital": {
+      "en": "Alofi",
+      "fr": "Alofi"
+    }
+  },
+  {
+    "code": "NZ",
+    "continent": "OC",
+    "flag": "assets/flags/nz.png",
+    "name": {
+      "en": "New Zealand",
+      "fr": "Nouvelle-Zélande"
+    },
+    "capital": {
+      "en": "Wellington",
+      "fr": "Wellington"
+    }
+  },
+  {
+    "code": "OM",
+    "continent": "AS",
+    "flag": "assets/flags/om.png",
+    "name": {
+      "en": "Oman",
+      "fr": "Oman"
+    },
+    "capital": {
+      "en": "Muscat",
+      "fr": "Muscat"
+    }
+  },
+  {
+    "code": "PA",
+    "continent": "AM",
+    "flag": "assets/flags/pa.png",
+    "name": {
+      "en": "Panama",
+      "fr": "Panama"
+    },
+    "capital": {
+      "en": "Panama City",
+      "fr": "Panama City"
+    }
+  },
+  {
+    "code": "PE",
+    "continent": "AM",
+    "flag": "assets/flags/pe.png",
+    "name": {
+      "en": "Peru",
+      "fr": "Pérou"
+    },
+    "capital": {
+      "en": "Lima",
+      "fr": "Lima"
+    }
+  },
+  {
+    "code": "PF",
+    "continent": "OC",
+    "flag": "assets/flags/pf.png",
+    "name": {
+      "en": "French Polynesia",
+      "fr": "Polynésie française"
+    },
+    "capital": {
+      "en": "Papeetē",
+      "fr": "Papeetē"
+    }
+  },
+  {
+    "code": "PG",
+    "continent": "OC",
+    "flag": "assets/flags/pg.png",
+    "name": {
+      "en": "Papua New Guinea",
+      "fr": "Papouasie-Nouvelle-Guinée"
+    },
+    "capital": {
+      "en": "Port Moresby",
+      "fr": "Port Moresby"
+    }
+  },
+  {
+    "code": "PH",
+    "continent": "AS",
+    "flag": "assets/flags/ph.png",
+    "name": {
+      "en": "Philippines",
+      "fr": "Philippines"
+    },
+    "capital": {
+      "en": "Manila",
+      "fr": "Manila"
+    }
+  },
+  {
+    "code": "PK",
+    "continent": "AS",
+    "flag": "assets/flags/pk.png",
+    "name": {
+      "en": "Pakistan",
+      "fr": "Pakistan"
+    },
+    "capital": {
+      "en": "Islamabad",
+      "fr": "Islamabad"
+    }
+  },
+  {
+    "code": "PL",
+    "continent": "EU",
+    "flag": "assets/flags/pl.png",
+    "name": {
+      "en": "Poland",
+      "fr": "Pologne"
+    },
+    "capital": {
+      "en": "Warsaw",
+      "fr": "Warsaw"
+    }
+  },
+  {
+    "code": "PM",
+    "continent": "AM",
+    "flag": "assets/flags/pm.png",
+    "name": {
+      "en": "Saint Pierre and Miquelon",
+      "fr": "Saint-Pierre-et-Miquelon"
+    },
+    "capital": {
+      "en": "Saint-Pierre",
+      "fr": "Saint-Pierre"
+    }
+  },
+  {
+    "code": "PN",
+    "continent": "OC",
+    "flag": "assets/flags/pn.png",
+    "name": {
+      "en": "Pitcairn Islands",
+      "fr": "Îles Pitcairn"
+    },
+    "capital": {
+      "en": "Adamstown",
+      "fr": "Adamstown"
+    }
+  },
+  {
+    "code": "PR",
+    "continent": "AM",
+    "flag": "assets/flags/pr.png",
+    "name": {
+      "en": "Puerto Rico",
+      "fr": "Porto Rico"
+    },
+    "capital": {
+      "en": "San Juan",
+      "fr": "San Juan"
+    }
+  },
+  {
+    "code": "PS",
+    "continent": "AS",
+    "flag": "assets/flags/ps.png",
+    "name": {
+      "en": "Palestine",
+      "fr": "Palestine"
+    },
+    "capital": {
+      "en": "Ramallah",
+      "fr": "Ramallah"
+    }
+  },
+  {
+    "code": "PT",
+    "continent": "EU",
+    "flag": "assets/flags/pt.png",
+    "name": {
+      "en": "Portugal",
+      "fr": "Portugal"
+    },
+    "capital": {
+      "en": "Lisbon",
+      "fr": "Lisbon"
+    }
+  },
+  {
+    "code": "PW",
+    "continent": "OC",
+    "flag": "assets/flags/pw.png",
+    "name": {
+      "en": "Palau",
+      "fr": "Palaos (Palau)"
+    },
+    "capital": {
+      "en": "Ngerulmud",
+      "fr": "Ngerulmud"
+    }
+  },
+  {
+    "code": "PY",
+    "continent": "AM",
+    "flag": "assets/flags/py.png",
+    "name": {
+      "en": "Paraguay",
+      "fr": "Paraguay"
+    },
+    "capital": {
+      "en": "Asunción",
+      "fr": "Asunción"
+    }
+  },
+  {
+    "code": "QA",
+    "continent": "AS",
+    "flag": "assets/flags/qa.png",
+    "name": {
+      "en": "Qatar",
+      "fr": "Qatar"
+    },
+    "capital": {
+      "en": "Doha",
+      "fr": "Doha"
+    }
+  },
+  {
+    "code": "RO",
+    "continent": "EU",
+    "flag": "assets/flags/ro.png",
+    "name": {
+      "en": "Romania",
+      "fr": "Roumanie"
+    },
+    "capital": {
+      "en": "Bucharest",
+      "fr": "Bucharest"
+    }
+  },
+  {
+    "code": "RS",
+    "continent": "EU",
+    "flag": "assets/flags/rs.png",
+    "name": {
+      "en": "Serbia",
+      "fr": "Serbie"
+    },
+    "capital": {
+      "en": "Belgrade",
+      "fr": "Belgrade"
+    }
+  },
+  {
+    "code": "RU",
+    "continent": "EU",
+    "flag": "assets/flags/ru.png",
+    "name": {
+      "en": "Russia",
+      "fr": "Russie"
+    },
+    "capital": {
+      "en": "Moscow",
+      "fr": "Moscow"
+    }
+  },
+  {
+    "code": "RW",
+    "continent": "AF",
+    "flag": "assets/flags/rw.png",
+    "name": {
+      "en": "Rwanda",
+      "fr": "Rwanda"
+    },
+    "capital": {
+      "en": "Kigali",
+      "fr": "Kigali"
+    }
+  },
+  {
+    "code": "SA",
+    "continent": "AS",
+    "flag": "assets/flags/sa.png",
+    "name": {
+      "en": "Saudi Arabia",
+      "fr": "Arabie Saoudite"
+    },
+    "capital": {
+      "en": "Riyadh",
+      "fr": "Riyadh"
+    }
+  },
+  {
+    "code": "SB",
+    "continent": "OC",
+    "flag": "assets/flags/sb.png",
+    "name": {
+      "en": "Solomon Islands",
+      "fr": "Îles Salomon"
+    },
+    "capital": {
+      "en": "Honiara",
+      "fr": "Honiara"
+    }
+  },
+  {
+    "code": "SC",
+    "continent": "AF",
+    "flag": "assets/flags/sc.png",
+    "name": {
+      "en": "Seychelles",
+      "fr": "Seychelles"
+    },
+    "capital": {
+      "en": "Victoria",
+      "fr": "Victoria"
+    }
+  },
+  {
+    "code": "SD",
+    "continent": "AF",
+    "flag": "assets/flags/sd.png",
+    "name": {
+      "en": "Sudan",
+      "fr": "Soudan"
+    },
+    "capital": {
+      "en": "Khartoum",
+      "fr": "Khartoum"
+    }
+  },
+  {
+    "code": "SE",
+    "continent": "EU",
+    "flag": "assets/flags/se.png",
+    "name": {
+      "en": "Sweden",
+      "fr": "Suède"
+    },
+    "capital": {
+      "en": "Stockholm",
+      "fr": "Stockholm"
+    }
+  },
+  {
+    "code": "SG",
+    "continent": "AS",
+    "flag": "assets/flags/sg.png",
+    "name": {
+      "en": "Singapore",
+      "fr": "Singapour"
+    },
+    "capital": {
+      "en": "Singapore",
+      "fr": "Singapore"
+    }
+  },
+  {
+    "code": "SI",
+    "continent": "EU",
+    "flag": "assets/flags/si.png",
+    "name": {
+      "en": "Slovenia",
+      "fr": "Slovénie"
+    },
+    "capital": {
+      "en": "Ljubljana",
+      "fr": "Ljubljana"
+    }
+  },
+  {
+    "code": "SK",
+    "continent": "EU",
+    "flag": "assets/flags/sk.png",
+    "name": {
+      "en": "Slovakia",
+      "fr": "Slovaquie"
+    },
+    "capital": {
+      "en": "Bratislava",
+      "fr": "Bratislava"
+    }
+  },
+  {
+    "code": "SL",
+    "continent": "AF",
+    "flag": "assets/flags/sl.png",
+    "name": {
+      "en": "Sierra Leone",
+      "fr": "Sierra Leone"
+    },
+    "capital": {
+      "en": "Freetown",
+      "fr": "Freetown"
+    }
+  },
+  {
+    "code": "SM",
+    "continent": "EU",
+    "flag": "assets/flags/sm.png",
+    "name": {
+      "en": "San Marino",
+      "fr": "Saint-Marin"
+    },
+    "capital": {
+      "en": "City of San Marino",
+      "fr": "City of San Marino"
+    }
+  },
+  {
+    "code": "SO",
+    "continent": "AF",
+    "flag": "assets/flags/so.png",
+    "name": {
+      "en": "Somalia",
+      "fr": "Somalie"
+    },
+    "capital": {
+      "en": "Mogadishu",
+      "fr": "Mogadishu"
+    }
+  },
+  {
+    "code": "SR",
+    "continent": "AM",
+    "flag": "assets/flags/sr.png",
+    "name": {
+      "en": "Suriname",
+      "fr": "Surinam"
+    },
+    "capital": {
+      "en": "Paramaribo",
+      "fr": "Paramaribo"
+    }
+  },
+  {
+    "code": "SS",
+    "continent": "AF",
+    "flag": "assets/flags/ss.png",
+    "name": {
+      "en": "South Sudan",
+      "fr": "Soudan du Sud"
+    },
+    "capital": {
+      "en": "Juba",
+      "fr": "Juba"
+    }
+  },
+  {
+    "code": "ST",
+    "continent": "AF",
+    "flag": "assets/flags/st.png",
+    "name": {
+      "en": "São Tomé and Príncipe",
+      "fr": "São Tomé et Príncipe"
+    },
+    "capital": {
+      "en": "São Tomé",
+      "fr": "São Tomé"
+    }
+  },
+  {
+    "code": "SV",
+    "continent": "AM",
+    "flag": "assets/flags/sv.png",
+    "name": {
+      "en": "El Salvador",
+      "fr": "Salvador"
+    },
+    "capital": {
+      "en": "San Salvador",
+      "fr": "San Salvador"
+    }
+  },
+  {
+    "code": "SX",
+    "continent": "AM",
+    "flag": "assets/flags/sx.png",
+    "name": {
+      "en": "Sint Maarten",
+      "fr": "Saint-Martin"
+    },
+    "capital": {
+      "en": "Philipsburg",
+      "fr": "Philipsburg"
+    }
+  },
+  {
+    "code": "SY",
+    "continent": "AS",
+    "flag": "assets/flags/sy.png",
+    "name": {
+      "en": "Syria",
+      "fr": "Syrie"
+    },
+    "capital": {
+      "en": "Damascus",
+      "fr": "Damascus"
+    }
+  },
+  {
+    "code": "SZ",
+    "continent": "AF",
+    "flag": "assets/flags/sz.png",
+    "name": {
+      "en": "Eswatini",
+      "fr": "Swaziland"
+    },
+    "capital": {
+      "en": "Mbabane",
+      "fr": "Mbabane"
+    }
+  },
+  {
+    "code": "TC",
+    "continent": "AM",
+    "flag": "assets/flags/tc.png",
+    "name": {
+      "en": "Turks and Caicos Islands",
+      "fr": "Îles Turques-et-Caïques"
+    },
+    "capital": {
+      "en": "Cockburn Town",
+      "fr": "Cockburn Town"
+    }
+  },
+  {
+    "code": "TF",
+    "continent": "AN",
+    "flag": "assets/flags/tf.png",
+    "name": {
+      "en": "French Southern and Antarctic Lands",
+      "fr": "Terres australes et antarctiques françaises"
+    },
+    "capital": {
+      "en": "Port-aux-Français",
+      "fr": "Port-aux-Français"
+    }
+  },
+  {
+    "code": "TG",
+    "continent": "AF",
+    "flag": "assets/flags/tg.png",
+    "name": {
+      "en": "Togo",
+      "fr": "Togo"
+    },
+    "capital": {
+      "en": "Lomé",
+      "fr": "Lomé"
+    }
+  },
+  {
+    "code": "TH",
+    "continent": "AS",
+    "flag": "assets/flags/th.png",
+    "name": {
+      "en": "Thailand",
+      "fr": "Thaïlande"
+    },
+    "capital": {
+      "en": "Bangkok",
+      "fr": "Bangkok"
+    }
+  },
+  {
+    "code": "TJ",
+    "continent": "AS",
+    "flag": "assets/flags/tj.png",
+    "name": {
+      "en": "Tajikistan",
+      "fr": "Tadjikistan"
+    },
+    "capital": {
+      "en": "Dushanbe",
+      "fr": "Dushanbe"
+    }
+  },
+  {
+    "code": "TL",
+    "continent": "AS",
+    "flag": "assets/flags/tl.png",
+    "name": {
+      "en": "Timor-Leste",
+      "fr": "Timor oriental"
+    },
+    "capital": {
+      "en": "Dili",
+      "fr": "Dili"
+    }
+  },
+  {
+    "code": "TM",
+    "continent": "AS",
+    "flag": "assets/flags/tm.png",
+    "name": {
+      "en": "Turkmenistan",
+      "fr": "Turkménistan"
+    },
+    "capital": {
+      "en": "Ashgabat",
+      "fr": "Ashgabat"
+    }
+  },
+  {
+    "code": "TN",
+    "continent": "AF",
+    "flag": "assets/flags/tn.png",
+    "name": {
+      "en": "Tunisia",
+      "fr": "Tunisie"
+    },
+    "capital": {
+      "en": "Tunis",
+      "fr": "Tunis"
+    }
+  },
+  {
+    "code": "TO",
+    "continent": "OC",
+    "flag": "assets/flags/to.png",
+    "name": {
+      "en": "Tonga",
+      "fr": "Tonga"
+    },
+    "capital": {
+      "en": "Nuku'alofa",
+      "fr": "Nuku'alofa"
+    }
+  },
+  {
+    "code": "TR",
+    "continent": "AS",
+    "flag": "assets/flags/tr.png",
+    "name": {
+      "en": "Turkey",
+      "fr": "Turquie"
+    },
+    "capital": {
+      "en": "Ankara",
+      "fr": "Ankara"
+    }
+  },
+  {
+    "code": "TT",
+    "continent": "AM",
+    "flag": "assets/flags/tt.png",
+    "name": {
+      "en": "Trinidad and Tobago",
+      "fr": "Trinité-et-Tobago"
+    },
+    "capital": {
+      "en": "Port of Spain",
+      "fr": "Port of Spain"
+    }
+  },
+  {
+    "code": "TV",
+    "continent": "OC",
+    "flag": "assets/flags/tv.png",
+    "name": {
+      "en": "Tuvalu",
+      "fr": "Tuvalu"
+    },
+    "capital": {
+      "en": "Funafuti",
+      "fr": "Funafuti"
+    }
+  },
+  {
+    "code": "TZ",
+    "continent": "AF",
+    "flag": "assets/flags/tz.png",
+    "name": {
+      "en": "Tanzania",
+      "fr": "Tanzanie"
+    },
+    "capital": {
+      "en": "Dodoma",
+      "fr": "Dodoma"
+    }
+  },
+  {
+    "code": "UA",
+    "continent": "EU",
+    "flag": "assets/flags/ua.png",
+    "name": {
+      "en": "Ukraine",
+      "fr": "Ukraine"
+    },
+    "capital": {
+      "en": "Kyiv",
+      "fr": "Kyiv"
+    }
+  },
+  {
+    "code": "UG",
+    "continent": "AF",
+    "flag": "assets/flags/ug.png",
+    "name": {
+      "en": "Uganda",
+      "fr": "Ouganda"
+    },
+    "capital": {
+      "en": "Kampala",
+      "fr": "Kampala"
+    }
+  },
+  {
+    "code": "UM",
+    "continent": "AM",
+    "flag": "assets/flags/um.png",
+    "name": {
+      "en": "United States Minor Outlying Islands",
+      "fr": "Îles mineures éloignées des États-Unis"
+    },
+    "capital": {
+      "en": "Washington DC",
+      "fr": "Washington DC"
+    }
+  },
+  {
+    "code": "UY",
+    "continent": "AM",
+    "flag": "assets/flags/uy.png",
+    "name": {
+      "en": "Uruguay",
+      "fr": "Uruguay"
+    },
+    "capital": {
+      "en": "Montevideo",
+      "fr": "Montevideo"
+    }
+  },
+  {
+    "code": "UZ",
+    "continent": "AS",
+    "flag": "assets/flags/uz.png",
+    "name": {
+      "en": "Uzbekistan",
+      "fr": "Ouzbékistan"
+    },
+    "capital": {
+      "en": "Tashkent",
+      "fr": "Tashkent"
+    }
+  },
+  {
+    "code": "VA",
+    "continent": "EU",
+    "flag": "assets/flags/va.png",
+    "name": {
+      "en": "Vatican City",
+      "fr": "Cité du Vatican"
+    },
+    "capital": {
+      "en": "Vatican City",
+      "fr": "Vatican City"
+    }
+  },
+  {
+    "code": "VC",
+    "continent": "AM",
+    "flag": "assets/flags/vc.png",
+    "name": {
+      "en": "Saint Vincent and the Grenadines",
+      "fr": "Saint-Vincent-et-les-Grenadines"
+    },
+    "capital": {
+      "en": "Kingstown",
+      "fr": "Kingstown"
+    }
+  },
+  {
+    "code": "VE",
+    "continent": "AM",
+    "flag": "assets/flags/ve.png",
+    "name": {
+      "en": "Venezuela",
+      "fr": "Venezuela"
+    },
+    "capital": {
+      "en": "Caracas",
+      "fr": "Caracas"
+    }
+  },
+  {
+    "code": "VG",
+    "continent": "AM",
+    "flag": "assets/flags/vg.png",
+    "name": {
+      "en": "British Virgin Islands",
+      "fr": "Îles Vierges britanniques"
+    },
+    "capital": {
+      "en": "Road Town",
+      "fr": "Road Town"
+    }
+  },
+  {
+    "code": "VI",
+    "continent": "AM",
+    "flag": "assets/flags/vi.png",
+    "name": {
+      "en": "United States Virgin Islands",
+      "fr": "Îles Vierges des États-Unis"
+    },
+    "capital": {
+      "en": "Charlotte Amalie",
+      "fr": "Charlotte Amalie"
+    }
+  },
+  {
+    "code": "VN",
+    "continent": "AS",
+    "flag": "assets/flags/vn.png",
+    "name": {
+      "en": "Vietnam",
+      "fr": "Viêt Nam"
+    },
+    "capital": {
+      "en": "Hanoi",
+      "fr": "Hanoi"
+    }
+  },
+  {
+    "code": "VU",
+    "continent": "OC",
+    "flag": "assets/flags/vu.png",
+    "name": {
+      "en": "Vanuatu",
+      "fr": "Vanuatu"
+    },
+    "capital": {
+      "en": "Port Vila",
+      "fr": "Port Vila"
+    }
+  },
+  {
+    "code": "WF",
+    "continent": "OC",
+    "flag": "assets/flags/wf.png",
+    "name": {
+      "en": "Wallis and Futuna",
+      "fr": "Wallis-et-Futuna"
+    },
+    "capital": {
+      "en": "Mata-Utu",
+      "fr": "Mata-Utu"
+    }
+  },
+  {
+    "code": "WS",
+    "continent": "OC",
+    "flag": "assets/flags/ws.png",
+    "name": {
+      "en": "Samoa",
+      "fr": "Samoa"
+    },
+    "capital": {
+      "en": "Apia",
+      "fr": "Apia"
+    }
+  },
+  {
+    "code": "YE",
+    "continent": "AS",
+    "flag": "assets/flags/ye.png",
+    "name": {
+      "en": "Yemen",
+      "fr": "Yémen"
+    },
+    "capital": {
+      "en": "Sana'a",
+      "fr": "Sana'a"
+    }
+  },
+  {
+    "code": "ZA",
+    "continent": "AF",
+    "flag": "assets/flags/za.png",
+    "name": {
+      "en": "South Africa",
+      "fr": "Afrique du Sud"
+    },
+    "capital": {
+      "en": "Pretoria",
+      "fr": "Pretoria"
+    }
+  },
+  {
+    "code": "ZM",
+    "continent": "AF",
+    "flag": "assets/flags/zm.png",
+    "name": {
+      "en": "Zambia",
+      "fr": "Zambie"
+    },
+    "capital": {
+      "en": "Lusaka",
+      "fr": "Lusaka"
+    }
+  },
+  {
+    "code": "ZW",
+    "continent": "AF",
+    "flag": "assets/flags/zw.png",
+    "name": {
+      "en": "Zimbabwe",
+      "fr": "Zimbabwe"
+    },
+    "capital": {
+      "en": "Harare",
+      "fr": "Harare"
+    }
+  }
+  ]
