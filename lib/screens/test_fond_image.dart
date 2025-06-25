@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 /// Écran de test pour superposer un fond de relief avec les frontières des pays d'Afrique
+/// et afficher dynamiquement les dimensions de la bbox géographique
 class TestFondImageScreen extends StatefulWidget {
   const TestFondImageScreen({Key? key}) : super(key: key);
 
@@ -17,6 +18,8 @@ class TestFondImageScreen extends StatefulWidget {
 class _TestFondImageScreenState extends State<TestFondImageScreen> {
   ui.Image? _backgroundImage;
   Map<String, dynamic>? _countriesJson;
+  double? _geoWidth;
+  double? _geoHeight;
 
   @override
   void initState() {
@@ -25,7 +28,7 @@ class _TestFondImageScreenState extends State<TestFondImageScreen> {
     _loadCountriesGeoJson();
   }
 
-  /// Charge l'image de relief "relief.png" depuis les assets
+  /// Charge l'image de relief et stocke dans _backgroundImage
   Future<void> _loadBackgroundImage() async {
     final data = await rootBundle.load('assets/relief.png');
     final bytes = Uint8List.view(data.buffer);
@@ -34,34 +37,80 @@ class _TestFondImageScreenState extends State<TestFondImageScreen> {
     setState(() => _backgroundImage = frame.image);
   }
 
-  /// Charge le GeoJSON des pays d'Afrique depuis "assets/maps/af.geojson"
+  /// Charge le GeoJSON et calcule la bbox (geoWidth, geoHeight)
   Future<void> _loadCountriesGeoJson() async {
     final jsonStr = await rootBundle.loadString('assets/maps/af.geojson');
-    setState(() => _countriesJson = json.decode(jsonStr) as Map<String, dynamic>);
+    final geo = json.decode(jsonStr) as Map<String, dynamic>;
+
+    // Calcul de la bounding box
+    double minX = double.infinity, minY = double.infinity;
+    double maxX = -double.infinity, maxY = -double.infinity;
+    for (final feature in geo['features'] as List) {
+      final geom = feature['geometry'];
+      Iterable rings;
+      if (geom['type'] == 'Polygon') {
+        rings = (geom['coordinates'] as List).cast<List<dynamic>>();
+      } else {
+        rings = (geom['coordinates'] as List)
+            .expand((poly) => (poly as List).cast<List<dynamic>>());
+      }
+      for (final ring in rings) {
+        for (final pt in ring) {
+          final x = (pt[0] as num).toDouble();
+          final y = (pt[1] as num).toDouble();
+          if (x < minX) minX = x;
+          if (y < minY) minY = y;
+          if (x > maxX) maxX = x;
+          if (y > maxY) maxY = y;
+        }
+      }
+    }
+    final width = maxX - minX;
+    final height = maxY - minY;
+
+    debugPrint('🌍 geoWidth = $width   geoHeight = $height');
+
+    setState(() {
+      _countriesJson = geo;
+      _geoWidth = width;
+      _geoHeight = height;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    if (_backgroundImage == null || _countriesJson == null) {
-      return Scaffold(
-        appBar: AppBar(title: const Text('Test Fond & Map')),
-        body: const Center(child: CircularProgressIndicator()),
-      );
-    }
+    // Affiche la bbox avant de dessiner si déjà calculée
     return Scaffold(
       appBar: AppBar(title: const Text('Test Fond & Map')),
-      body: CustomPaint(
-        size: MediaQuery.of(context).size,
-        painter: _FondMapPainter(
-          background: _backgroundImage!,
-          countriesJson: _countriesJson!,
-        ),
+      body: _backgroundImage == null || _countriesJson == null
+          ? const Center(child: CircularProgressIndicator())
+          : Column(
+        children: [
+          if (_geoWidth != null && _geoHeight != null)
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'geoWidth: ${_geoWidth!.toStringAsFixed(2)}, '
+                    'geoHeight: ${_geoHeight!.toStringAsFixed(2)}',
+                style: const TextStyle(fontSize: 16),
+              ),
+            ),
+          Expanded(
+            child: CustomPaint(
+              size: MediaQuery.of(context).size,
+              painter: _FondMapPainter(
+                background: _backgroundImage!,
+                countriesJson: _countriesJson!,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
 }
 
-/// CustomPainter qui dessine le relief en fond et superpose les frontières des pays
+/// CustomPainter pour dessiner le relief et les frontières avec même transform
 class _FondMapPainter extends CustomPainter {
   final ui.Image background;
   final Map<String, dynamic> countriesJson;
@@ -74,112 +123,75 @@ class _FondMapPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint();
-
-    // 1. Dessine l'image de fond réduite : 50% hauteur, 50% largeur,
-    //    centrée puis ajustée vers le haut et la gauche.
-    const horizontalOffsetFraction = 0.053; // déplace de 10% de la largeur vers la gauche
-    const verticalOffsetFraction = 0.11;   // déplace de 10% de la hauteur vers le haut
-
-    final imageWidth = background.width.toDouble();
-    final imageHeight = background.height.toDouble();
-    final dstWidth = imageWidth * 0.534;  // largeur à 50%
-    final dstHeight = imageHeight * 0.534; // hauteur à 50%
-
-    // Calcul pour centrer l'image réduite
-    double dxBg = (size.width - dstWidth) / 2;
-    double dyBg = (size.height - dstHeight) / 2;
-    // Applique les offsets négatifs pour remonter et décaler à gauche
-    dxBg -= dstWidth * horizontalOffsetFraction;
-    dyBg -= dstHeight * verticalOffsetFraction;
-
-    final srcRect = Rect.fromLTWH(0, 0, imageWidth, imageHeight);
-    final dstRect = Rect.fromLTWH(dxBg, dyBg, dstWidth, dstHeight);
-    canvas.drawImageRect(background, srcRect, dstRect, paint);
-
-    // 2. Récupère tous les anneaux (rings) des géométries des pays
+    // Extraction des anneaux
     final rings = <List<dynamic>>[];
     for (final feature in countriesJson['features'] as List) {
       _collectRings(feature['geometry'], rings);
     }
-    if (rings.isEmpty) {
-      debugPrint('Aucun contour de pays trouvé');
-      return;
-    }
+    if (rings.isEmpty) return;
 
-    // 3. Calcule la bounding box (minX, minY, maxX, maxY)
+    // Calcul bbox
     double minX = double.infinity, minY = double.infinity;
     double maxX = -double.infinity, maxY = -double.infinity;
     for (final ring in rings) {
       for (final coord in ring) {
         final x = (coord[0] as num).toDouble();
         final y = (coord[1] as num).toDouble();
-        if (x < minX) minX = x;
-        if (y < minY) minY = y;
-        if (x > maxX) maxX = x;
-        if (y > maxY) maxY = y;
+        minX = x < minX ? x : minX;
+        minY = y < minY ? y : minY;
+        maxX = x > maxX ? x : maxX;
+        maxY = y > maxY ? y : maxY;
       }
     }
     final geoWidth = maxX - minX;
     final geoHeight = maxY - minY;
 
-    // 4. Calcule le scale (zoom) et la translation pour centrer la carte
+    // Scale & translate
     final scaleX = size.width / geoWidth;
     final scaleY = size.height / geoHeight;
     final scale = scaleX < scaleY ? scaleX : scaleY;
     final dx = (size.width - geoWidth * scale) / 2 - minX * scale;
     final dy = (size.height - geoHeight * scale) / 2 + maxY * scale;
-
-    // 5. Applique la translation et l’inversion de l’axe Y
     canvas.save();
     canvas.translate(dx, dy);
     canvas.scale(scale, -scale);
 
-    // 6. Prépare le Paint pour tracer les frontières
+    // Dessin du fond
+    final src = Rect.fromLTWH(0, 0, background.width.toDouble(), background.height.toDouble());
+    final dst = Rect.fromLTWH(minX, minY, geoWidth, geoHeight);
+    canvas.drawImageRect(background, src, dst, paint);
+
+    // Dessin contours
     final borderPaint = Paint()
       ..style = PaintingStyle.stroke
       ..color = Colors.grey.shade300
       ..strokeWidth = 1 / scale;
-
-    // 7. Trace chaque anneau pour dessiner les contours
     for (final ring in rings) {
       final path = Path();
-      bool first = true;
-      for (final coord in ring) {
-        final x = (coord[0] as num).toDouble();
-        final y = (coord[1] as num).toDouble();
-        if (first) {
-          path.moveTo(x, y);
-          first = false;
-        } else {
-          path.lineTo(x, y);
-        }
+      for (int i = 0; i < ring.length; i++) {
+        final x = (ring[i][0] as num).toDouble();
+        final y = (ring[i][1] as num).toDouble();
+        if (i == 0) path.moveTo(x, y);
+        else path.lineTo(x, y);
       }
       path.close();
       canvas.drawPath(path, borderPaint);
     }
-
     canvas.restore();
   }
 
-  /// Extrait les anneaux de polygones ou multipolygones
   void _collectRings(dynamic geom, List<List<dynamic>> rings) {
     final type = geom['type'] as String;
     final coords = geom['coordinates'];
     if (type == 'Polygon') {
-      for (final ring in coords as List) {
-        rings.add(ring as List<dynamic>);
-      }
+      for (final ring in coords as List) rings.add(ring as List<dynamic>);
     } else if (type == 'MultiPolygon') {
-      for (final poly in coords as List) {
-        for (final ring in poly as List) {
-          rings.add(ring as List<dynamic>);
-        }
-      }
+      for (final poly in coords as List)
+        for (final ring in poly as List) rings.add(ring as List<dynamic>);
     }
   }
 
   @override
-  bool shouldRepaint(covariant _FondMapPainter old) {
-    return old.background != background || old.countriesJson != countriesJson;
-  }
+  bool shouldRepaint(covariant _FondMapPainter old) =>
+      old.background != background || old.countriesJson != countriesJson;
 }
