@@ -1,106 +1,140 @@
-// lib/screens/test_fond_image.dart
-
-import 'dart:ui' as ui;
-import 'dart:typed_data';
-import 'dart:convert';
+// lib/screens/test_fond_image_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'dart:ui' as ui;
+import 'dart:convert';
+import 'dart:math';
 
-/// Écran de test pour superposer un fond de relief avec les frontières des pays d'Afrique
-/// et afficher dynamiquement les dimensions de la bbox géographique
 class TestFondImageScreen extends StatefulWidget {
   const TestFondImageScreen({Key? key}) : super(key: key);
 
   @override
-  _TestFondImageScreenState createState() => _TestFondImageScreenState();
+  State<TestFondImageScreen> createState() => _TestFondImageScreenState();
 }
 
 class _TestFondImageScreenState extends State<TestFondImageScreen> {
-  ui.Image? _backgroundImage;
-  Map<String, dynamic>? _countriesJson;
-  double? _geoWidth;
-  double? _geoHeight;
+  // État
+  ui.Image? _reliefImage;
+  List<Offset> _borderPoints = [];
+  bool _isLoading = true;
+  String? _debugInfo;
+  final TransformationController _transformController = TransformationController();
+
+  // Constantes ajustables
+  static const String _reliefPath = 'assets/maps/africa/relief.png';
+  static const String _geoJsonPath = 'assets/maps/africa/af.geojson';
+  static const Rect _africaBounds = Rect.fromLTRB(-25, 10, 35, -17); // Ajusté selon vos points // À ajuster selon votre image
 
   @override
   void initState() {
     super.initState();
-    _loadBackgroundImage();
-    _loadCountriesGeoJson();
+    _loadResources();
   }
 
-  /// Charge l'image de relief et stocke dans _backgroundImage
-  Future<void> _loadBackgroundImage() async {
-    final data = await rootBundle.load('assets/relief.png');
-    final bytes = Uint8List.view(data.buffer);
-    final codec = await ui.instantiateImageCodec(bytes);
-    final frame = await codec.getNextFrame();
-    setState(() => _backgroundImage = frame.image);
-  }
+  Future<void> _loadResources() async {
+    try {
+      // 1. Charge l'image PNG
+      final ByteData imageData = await rootBundle.load(_reliefPath);
+      _reliefImage = await decodeImageFromList(imageData.buffer.asUint8List());
+      _debugInfo = 'Image loaded: ${_reliefImage!.width}x${_reliefImage!.height}';
 
-  /// Charge le GeoJSON et calcule la bbox (geoWidth, geoHeight)
-  Future<void> _loadCountriesGeoJson() async {
-    final jsonStr = await rootBundle.loadString('assets/maps/af.geojson');
-    final geo = json.decode(jsonStr) as Map<String, dynamic>;
+      // 2. Charge et convertit le GeoJSON
+      final geoJson = await rootBundle.loadString(_geoJsonPath);
+      _borderPoints = _convertGeoJsonToPoints(geoJson);
+      _debugInfo = '${_debugInfo}\nPoints: ${_borderPoints.length}';
 
-    // Calcul de la bounding box
-    double minX = double.infinity, minY = double.infinity;
-    double maxX = -double.infinity, maxY = -double.infinity;
-    for (final feature in geo['features'] as List) {
-      final geom = feature['geometry'];
-      Iterable rings;
-      if (geom['type'] == 'Polygon') {
-        rings = (geom['coordinates'] as List).cast<List<dynamic>>();
-      } else {
-        rings = (geom['coordinates'] as List)
-            .expand((poly) => (poly as List).cast<List<dynamic>>());
+      // 3. Vérification des coordonnées
+      if (_borderPoints.isNotEmpty) {
+        final firstPoint = _borderPoints.first;
+        final lastPoint = _borderPoints.last;
+        _debugInfo = '${_debugInfo}\nFirst: (${firstPoint.dx}, ${firstPoint.dy})';
+        _debugInfo = '${_debugInfo}\nLast: (${lastPoint.dx}, ${lastPoint.dy})';
       }
-      for (final ring in rings) {
-        for (final pt in ring) {
-          final x = (pt[0] as num).toDouble();
-          final y = (pt[1] as num).toDouble();
-          if (x < minX) minX = x;
-          if (y < minY) minY = y;
-          if (x > maxX) maxX = x;
-          if (y > maxY) maxY = y;
+
+      setState(() => _isLoading = false);
+    } catch (e) {
+      _debugInfo = 'Erreur: $e';
+      setState(() => _isLoading = false);
+    }
+  }
+
+  List<Offset> _convertGeoJsonToPoints(String geoJson) {
+    final List<Offset> points = [];
+
+    try {
+      final data = json.decode(geoJson);
+      for (final feature in data['features'] as List) {
+        final geometry = feature['geometry'];
+        points.addAll(_extractPointsFromGeometry(geometry));
+      }
+    } catch (e) {
+      _debugInfo = 'GeoJSON error: $e';
+    }
+    return points;
+  }
+
+  List<Offset> _extractPointsFromGeometry(dynamic geometry) {
+    final List<Offset> points = [];
+    final type = geometry['type'];
+    final coords = geometry['coordinates'];
+
+    if (type == 'Polygon') {
+      for (final ring in coords as List) {
+        for (final coord in ring as List) {
+          points.add(Offset(
+            (coord[0] as num).toDouble(),
+            -(coord[1] as num).toDouble(), // Inversion Y
+          ));
+        }
+      }
+    } else if (type == 'MultiPolygon') {
+      for (final polygon in coords as List) {
+        for (final ring in polygon as List) {
+          for (final coord in ring as List) {
+            points.add(Offset(
+              (coord[0] as num).toDouble(),
+              -(coord[1] as num).toDouble(),
+            ));
+          }
         }
       }
     }
-    final width = maxX - minX;
-    final height = maxY - minY;
-
-    debugPrint('🌍 geoWidth = $width   geoHeight = $height');
-
-    setState(() {
-      _countriesJson = geo;
-      _geoWidth = width;
-      _geoHeight = height;
-    });
+    return points;
   }
 
   @override
   Widget build(BuildContext context) {
-    // Affiche la bbox avant de dessiner si déjà calculée
     return Scaffold(
-      appBar: AppBar(title: const Text('Test Fond & Map')),
-      body: _backgroundImage == null || _countriesJson == null
-          ? const Center(child: CircularProgressIndicator())
-          : Column(
+      appBar: AppBar(title: const Text('Test Carte Afrique')),
+      body: _isLoading
+          ? Center(child: CircularProgressIndicator())
+          : Stack(
         children: [
-          if (_geoWidth != null && _geoHeight != null)
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'geoWidth: ${_geoWidth!.toStringAsFixed(2)}, '
-                    'geoHeight: ${_geoHeight!.toStringAsFixed(2)}',
-                style: const TextStyle(fontSize: 16),
+          // Fond interactif
+          InteractiveViewer(
+            transformationController: _transformController,
+            minScale: 0.1,
+            maxScale: 5.0,
+            child: CustomPaint(
+              size: Size.infinite,
+              painter: _AfricaMapPainter(
+                reliefImage: _reliefImage!,
+                borderPoints: _borderPoints,
+                bounds: _africaBounds,
               ),
             ),
-          Expanded(
-            child: CustomPaint(
-              size: MediaQuery.of(context).size,
-              painter: _FondMapPainter(
-                background: _backgroundImage!,
-                countriesJson: _countriesJson!,
+          ),
+
+          // Overlay de debug
+          Positioned(
+            bottom: 20,
+            left: 20,
+            child: Container(
+              padding: EdgeInsets.all(8),
+              color: Colors.black.withOpacity(0.5),
+              child: Text(
+                _debugInfo ?? 'No debug info',
+                style: TextStyle(color: Colors.white),
               ),
             ),
           ),
@@ -110,88 +144,74 @@ class _TestFondImageScreenState extends State<TestFondImageScreen> {
   }
 }
 
-/// CustomPainter pour dessiner le relief et les frontières avec même transform
-class _FondMapPainter extends CustomPainter {
-  final ui.Image background;
-  final Map<String, dynamic> countriesJson;
+class _AfricaMapPainter extends CustomPainter {
+  final ui.Image reliefImage;
+  final List<Offset> borderPoints;
+  final Rect bounds;
 
-  _FondMapPainter({
-    required this.background,
-    required this.countriesJson,
+  _AfricaMapPainter({
+    required this.reliefImage,
+    required this.borderPoints,
+    required this.bounds,
   });
 
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint();
-    // Extraction des anneaux
-    final rings = <List<dynamic>>[];
-    for (final feature in countriesJson['features'] as List) {
-      _collectRings(feature['geometry'], rings);
-    }
-    if (rings.isEmpty) return;
+    // 1. Calcul des échelles
+    final imageAspect = reliefImage.width / reliefImage.height;
+    final screenAspect = size.width / size.height;
 
-    // Calcul bbox
-    double minX = double.infinity, minY = double.infinity;
-    double maxX = -double.infinity, maxY = -double.infinity;
-    for (final ring in rings) {
-      for (final coord in ring) {
-        final x = (coord[0] as num).toDouble();
-        final y = (coord[1] as num).toDouble();
-        minX = x < minX ? x : minX;
-        minY = y < minY ? y : minY;
-        maxX = x > maxX ? x : maxX;
-        maxY = y > maxY ? y : maxY;
+    double scale, dx = 0, dy = 0;
+    if (screenAspect > imageAspect) {
+      scale = size.height / reliefImage.height;
+      dx = (size.width - reliefImage.width * scale) / 2;
+    } else {
+      scale = size.width / reliefImage.width;
+      dy = (size.height - reliefImage.height * scale) / 2;
+    }
+
+    @override
+    void paint(Canvas canvas, Size size) {
+      // 1. Dessin du relief (inchangé)
+
+      // 2. Transformation géographique CORRIGÉE :
+      if (borderPoints.isNotEmpty) {
+        final geoScaleX = reliefImage.width / bounds.width;
+        final geoScaleY = reliefImage.height / bounds.height;
+        final geoScale = min(geoScaleX, geoScaleY);
+
+        // Décalage corrigé :
+        final geoOffset = Offset(
+          dx + (bounds.left.abs() * geoScale * scale), // Ajustement X
+          dy + (bounds.top * geoScale * scale),        // Ajustement Y
+        );
+
+        canvas.save();
+        canvas.translate(geoOffset.dx, geoOffset.dy);
+        canvas.scale(geoScale * scale, -geoScale * scale); // Notez l'inversion Y
+
+        // Dessin des frontières en ROUGE pour mieux voir :
+        final path = Path();
+        path.moveTo(borderPoints[0].dx, borderPoints[0].dy);
+        for (final point in borderPoints.skip(1)) {
+          path.lineTo(point.dx, point.dy);
+        }
+
+        canvas.drawPath(
+          path,
+          Paint()
+            ..color = Colors.red // Couleur visible
+            ..style = PaintingStyle.stroke
+            ..strokeWidth = 5.0, // Épaisseur augmentée
+        );
+
+        canvas.restore();
       }
-    }
-    final geoWidth = maxX - minX;
-    final geoHeight = maxY - minY;
-
-    // Scale & translate
-    final scaleX = size.width / geoWidth;
-    final scaleY = size.height / geoHeight;
-    final scale = scaleX < scaleY ? scaleX : scaleY;
-    final dx = (size.width - geoWidth * scale) / 2 - minX * scale;
-    final dy = (size.height - geoHeight * scale) / 2 + maxY * scale;
-    canvas.save();
-    canvas.translate(dx, dy);
-    canvas.scale(scale, -scale);
-
-    // Dessin du fond
-    final src = Rect.fromLTWH(0, 0, background.width.toDouble(), background.height.toDouble());
-    final dst = Rect.fromLTWH(minX, minY, geoWidth, geoHeight);
-    canvas.drawImageRect(background, src, dst, paint);
-
-    // Dessin contours
-    final borderPaint = Paint()
-      ..style = PaintingStyle.stroke
-      ..color = Colors.grey.shade300
-      ..strokeWidth = 1 / scale;
-    for (final ring in rings) {
-      final path = Path();
-      for (int i = 0; i < ring.length; i++) {
-        final x = (ring[i][0] as num).toDouble();
-        final y = (ring[i][1] as num).toDouble();
-        if (i == 0) path.moveTo(x, y);
-        else path.lineTo(x, y);
-      }
-      path.close();
-      canvas.drawPath(path, borderPaint);
-    }
-    canvas.restore();
-  }
-
-  void _collectRings(dynamic geom, List<List<dynamic>> rings) {
-    final type = geom['type'] as String;
-    final coords = geom['coordinates'];
-    if (type == 'Polygon') {
-      for (final ring in coords as List) rings.add(ring as List<dynamic>);
-    } else if (type == 'MultiPolygon') {
-      for (final poly in coords as List)
-        for (final ring in poly as List) rings.add(ring as List<dynamic>);
     }
   }
 
   @override
-  bool shouldRepaint(covariant _FondMapPainter old) =>
-      old.background != background || old.countriesJson != countriesJson;
+  bool shouldRepaint(covariant _AfricaMapPainter old) {
+    return old.reliefImage != reliefImage || old.borderPoints != borderPoints;
+  }
 }

@@ -8,6 +8,7 @@ import '../models/game_config.dart';
 import '../screens/test_wid_screen.dart';
 import 'continent_selection_screen.dart';
 import '../screens/flag_test_screen.dart';
+import '../screens/test_fond_image.dart';
 
 /// Modèle global de paramètres de l'application
 class AppSettings {
@@ -106,16 +107,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               },
             ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              child: const Text('Test image'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => const TestFondImageScreen()),
-                );
-              },
-            ),
+            // const SizedBox(height: 16),
+            // ElevatedButton(
+            //   child: const Text('Test image'),
+            //   onPressed: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(builder: (_) => const TestFondImageScreen()),
+            //     );
+            //   },
+            //),
           ]
         ),
       ),
