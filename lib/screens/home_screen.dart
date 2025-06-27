@@ -1,14 +1,7 @@
-// lib/screens/home_screen.dart
-
 import 'package:flutter/material.dart';
-import 'package:mapmania/screens/flag_test_screen.dart';
-import 'package:mapmania/screens/test_fond_image.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/game_config.dart';
-import '../screens/test_wid_screen.dart';
-import 'continent_selection_screen.dart';
-import '../screens/flag_test_screen.dart';
-import '../screens/test_fond_image.dart';
+import 'game_screen.dart';
 
 /// Modèle global de paramètres de l'application
 class AppSettings {
@@ -22,8 +15,7 @@ class AppSettings {
     language = prefs.getString('language') ?? language;
     soundEffects = prefs.getBool('soundEffects') ?? soundEffects;
     music = prefs.getBool('music') ?? music;
-    // Debug log
-    print('AppSettings.load: language=$language, soundEffects=$soundEffects, music=$music');
+    print('AppSettings.load: language=\$language, soundEffects=\$soundEffects, music=\$music');
   }
 
   /// Sauvegarde les paramètres dans SharedPreferences
@@ -32,201 +24,200 @@ class AppSettings {
     await prefs.setString('language', language);
     await prefs.setBool('soundEffects', soundEffects);
     await prefs.setBool('music', music);
-    // Debug log
-    print('AppSettings.save: language=$language, soundEffects=$soundEffects, music=$music');
+    print('AppSettings.save: language=\$language, soundEffects=\$soundEffects, music=\$music');
   }
 }
 
-/// Écran d'accueil principal
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool _loaded = false;
+  String _selectedContinent = 'AF';
+  GameMode _gameMode = GameMode.normal;
+  GameFormula _gameFormula = GameFormula.quick;
+  GameContent _gameContent = GameContent.basic;
+  bool _isPegadoMode = false;
 
   @override
   void initState() {
     super.initState();
-    // Charge les préférences avant d'afficher l'écran
-    AppSettings.load().then((_) {
-      print('HomeScreen.initState: preferences loaded -> language=${AppSettings.language}, soundEffects=${AppSettings.soundEffects}, music=${AppSettings.music}');
-      setState(() => _loaded = true);
-    });
+    AppSettings.load();
+  }
+
+  void _openSettings() {
+    showModalBottomSheet(
+      context: context,
+      builder: (_) => _SettingsSheet(),
+    ).whenComplete(() => setState(() {}));
+  }
+
+  void _startGame() {
+    final config = GameConfig(
+      continent: Continent.values.firstWhere((c) => c.name == _selectedContinent),
+      mode: _gameMode,
+      formula: _gameFormula,
+      content: _gameContent,
+      isPegado: _isPegadoMode,
+    );
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => GameScreen(config: config, language: AppSettings.language),
+      ),
+    );
+  }
+
+  Widget _buildOptionGroup<T>(String title, Map<T, String> labels, T selected, void Function(T) onChanged) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+        Wrap(
+          spacing: 10,
+          children: labels.entries.map((entry) => ChoiceChip(
+            label: Text(entry.value),
+            selected: selected == entry.key,
+            onSelected: (_) => onChanged(entry.key),
+          )).toList(),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildContinentSelector() {
+    final continents = ['AF', 'EU', 'AS', 'NA', 'SA', 'OC'];
+    return _buildOptionGroup<String>(
+      'Continent',
+      {for (var c in continents) c: c},
+      _selectedContinent,
+          (val) => setState(() => _selectedContinent = val),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    // Loader tant que les prefs ne sont pas chargées
-    if (!_loaded) {
-      return const Scaffold(
-        body: Center(child: CircularProgressIndicator()),
-      );
-    }
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('MapMania'),
         actions: [
           IconButton(
             icon: const Icon(Icons.settings),
-            tooltip: 'Paramètres',
             onPressed: _openSettings,
-          ),
+          )
         ],
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ElevatedButton(
-              child: const Text('Jouer'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => const FlagTestScreen()),
-                );
-              },
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              child: const Text('Test map'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => TestWidScreen(
-                      language: AppSettings.language,
-                      formula: GameFormula.complete,
-                      difficulty: GameMode.normal,
-                    ),
+            Expanded(
+              child: GridView.count(
+                crossAxisCount: 2,
+                crossAxisSpacing: 20,
+                mainAxisSpacing: 20,
+                children: [
+                  _buildContinentSelector(),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _buildOptionGroup<GameMode>('Mode de jeu', {
+                        GameMode.normal: 'Normal',
+                        GameMode.hard: 'Hard',
+                      }, _gameMode, (val) => setState(() => _gameMode = val)),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: _gameMode == GameMode.normal
+                            ? Image.asset('assets/images/normal_mode_preview.png', height: 100)
+                            : Image.asset('assets/images/hard_mode_preview.png', height: 100),
+                      ),
+                    ],
                   ),
-                );
-              },
+                  _buildOptionGroup<GameFormula>('Type de partie', {
+                    GameFormula.quick: 'Rapide',
+                    GameFormula.complete: 'Complète',
+                  }, _gameFormula, (val) => setState(() => _gameFormula = val)),
+                  _buildOptionGroup<GameContent>('Contenu', {
+                    GameContent.basic: 'Classique',
+                    GameContent.expert: 'Expert',
+                  }, _gameContent, (val) => setState(() => _gameContent = val)),
+                  Row(
+                    children: [
+                      const Text('Mode Pégado'),
+                      const Spacer(),
+                      Switch(
+                        value: _isPegadoMode,
+                        onChanged: (val) => setState(() => _isPegadoMode = val),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-            // const SizedBox(height: 16),
-            // ElevatedButton(
-            //   child: const Text('Test image'),
-            //   onPressed: () {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (_) => const TestFondImageScreen()),
-            //     );
-            //   },
-            //),
-          ]
+            ElevatedButton.icon(
+              onPressed: _startGame,
+              icon: const Icon(Icons.play_arrow),
+              label: const Text('Lancer la partie'),
+              style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 16)),
+            )
+          ],
         ),
       ),
     );
   }
-
-  /// Ouvre le panneau de paramètres en bas
-  void _openSettings() {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      builder: (ctx) => Padding(
-        padding: const EdgeInsets.only(bottom: 50.0),
-        child: const _SettingsSheet(),
-      ),
-    )
-        .then((_) {
-      // Reconstruit HomeScreen après fermeture de la feuille
-      setState(() {});
-    });
-  }
 }
 
-/// Feuille de paramètres (langue, effets, musique)
+/// Feuille de réglages accessibles via la roue crantée
 class _SettingsSheet extends StatefulWidget {
-  const _SettingsSheet({Key? key}) : super(key: key);
-
   @override
   State<_SettingsSheet> createState() => _SettingsSheetState();
 }
 
 class _SettingsSheetState extends State<_SettingsSheet> {
-  String _lang = AppSettings.language;
-  bool _sound = AppSettings.soundEffects;
-  bool _music = AppSettings.music;
-  bool _loading = true;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadSettings();
-  }
-
-  /// Charge les paramètres sauvegardés
-  Future<void> _loadSettings() async {
-    final prefs = await SharedPreferences.getInstance();
-    final lang = prefs.getString('language') ?? AppSettings.language;
-    final sound = prefs.getBool('soundEffects') ?? AppSettings.soundEffects;
-    final music = prefs.getBool('music') ?? AppSettings.music;
-
-    print('_SettingsSheet._loadSettings: fetched -> language=$lang, soundEffects=$sound, music=$music');
-
-    setState(() {
-      _lang = lang;
-      _sound = sound;
-      _music = music;
-      _loading = false;
-    });
-  }
-
-  @override
-  void dispose() {
-    // Sauvegarde automatique lors de la fermeture
-    print('_SettingsSheet.dispose: saving -> language=$_lang, soundEffects=$_sound, music=$_music');
-    AppSettings.language = _lang;
-    AppSettings.soundEffects = _sound;
-    AppSettings.music = _music;
-    AppSettings.save();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
-    if (_loading) {
-      return const Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Center(child: CircularProgressIndicator()),
-      );
-    }
-
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Text('Paramètres', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-          const Divider(),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text('Langue'),
+              const Spacer(),
               DropdownButton<String>(
-                value: _lang,
+                value: AppSettings.language,
                 items: const [
                   DropdownMenuItem(value: 'fr', child: Text('Français')),
                   DropdownMenuItem(value: 'en', child: Text('English')),
                 ],
-                onChanged: (v) => setState(() => _lang = v!),
+                onChanged: (val) => setState(() {
+                  if (val != null) AppSettings.language = val;
+                  AppSettings.save();
+                }),
               ),
             ],
           ),
           SwitchListTile(
             title: const Text('Effets sonores'),
-            value: _sound,
-            onChanged: (v) => setState(() => _sound = v),
+            value: AppSettings.soundEffects,
+            onChanged: (val) => setState(() {
+              AppSettings.soundEffects = val;
+              AppSettings.save();
+            }),
           ),
           SwitchListTile(
-            title: const Text('Musique'),
-            value: _music,
-            onChanged: (v) => setState(() => _music = v),
+            title: const Text('Musique de fond'),
+            value: AppSettings.music,
+            onChanged: (val) => setState(() {
+              AppSettings.music = val;
+              AppSettings.save();
+            }),
           ),
         ],
       ),
