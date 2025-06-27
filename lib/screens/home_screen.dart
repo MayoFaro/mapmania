@@ -1,30 +1,29 @@
+// home_screen.dart – version corrigée, sans overflow ni débordement, avec défilement adaptatif
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/game_config.dart';
 import 'game_screen.dart';
 
-/// Modèle global de paramètres de l'application
 class AppSettings {
-  static String language = 'fr'; // 'fr' ou 'en'
+  static String language = 'fr';
   static bool soundEffects = true;
   static bool music = true;
 
-  /// Charge les paramètres depuis SharedPreferences
   static Future<void> load() async {
     final prefs = await SharedPreferences.getInstance();
     language = prefs.getString('language') ?? language;
     soundEffects = prefs.getBool('soundEffects') ?? soundEffects;
     music = prefs.getBool('music') ?? music;
-    print('AppSettings.load: language=\$language, soundEffects=\$soundEffects, music=\$music');
+    print('AppSettings.load: language=$language, soundEffects=$soundEffects, music=$music');
   }
 
-  /// Sauvegarde les paramètres dans SharedPreferences
   static Future<void> save() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('language', language);
     await prefs.setBool('soundEffects', soundEffects);
     await prefs.setBool('music', music);
-    print('AppSettings.save: language=\$language, soundEffects=\$soundEffects, music=\$music');
+    print('AppSettings.save: language=$language, soundEffects=$soundEffects, music=$music');
   }
 }
 
@@ -111,68 +110,63 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(
-              child: GridView.count(
-                crossAxisCount: 2,
-                crossAxisSpacing: 20,
-                mainAxisSpacing: 20,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              _buildContinentSelector(),
+              const SizedBox(height: 20),
+              _buildOptionGroup<GameMode>('Mode de jeu', {
+                GameMode.normal: 'Normal',
+                GameMode.hard: 'Hard',
+              }, _gameMode, (val) => setState(() => _gameMode = val)),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                child: _gameMode == GameMode.normal
+                    ? Image.asset('assets/images/normal_mode_preview.png', height: 100)
+                    : Image.asset('assets/images/hard_mode_preview.png', height: 100),
+              ),
+              const Divider(height: 32),
+              _buildOptionGroup<GameFormula>('Type de partie', {
+                GameFormula.quick: 'Rapide',
+                GameFormula.complete: 'Complète',
+              }, _gameFormula, (val) => setState(() => _gameFormula = val)),
+              const SizedBox(height: 16),
+              _buildOptionGroup<GameContent>('Contenu', {
+                GameContent.basic: 'Classique',
+                GameContent.expert: 'Expert',
+              }, _gameContent, (val) => setState(() => _gameContent = val)),
+              const SizedBox(height: 16),
+              Row(
                 children: [
-                  _buildContinentSelector(),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _buildOptionGroup<GameMode>('Mode de jeu', {
-                        GameMode.normal: 'Normal',
-                        GameMode.hard: 'Hard',
-                      }, _gameMode, (val) => setState(() => _gameMode = val)),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: _gameMode == GameMode.normal
-                            ? Image.asset('assets/images/normal_mode_preview.png', height: 100)
-                            : Image.asset('assets/images/hard_mode_preview.png', height: 100),
-                      ),
-                    ],
-                  ),
-                  _buildOptionGroup<GameFormula>('Type de partie', {
-                    GameFormula.quick: 'Rapide',
-                    GameFormula.complete: 'Complète',
-                  }, _gameFormula, (val) => setState(() => _gameFormula = val)),
-                  _buildOptionGroup<GameContent>('Contenu', {
-                    GameContent.basic: 'Classique',
-                    GameContent.expert: 'Expert',
-                  }, _gameContent, (val) => setState(() => _gameContent = val)),
-                  Row(
-                    children: [
-                      const Text('Mode Pégado'),
-                      const Spacer(),
-                      Switch(
-                        value: _isPegadoMode,
-                        onChanged: (val) => setState(() => _isPegadoMode = val),
-                      ),
-                    ],
+                  const Text('Mode Pégado'),
+                  const Spacer(),
+                  Switch(
+                    value: _isPegadoMode,
+                    onChanged: (val) => setState(() => _isPegadoMode = val),
                   ),
                 ],
               ),
-            ),
-            ElevatedButton.icon(
-              onPressed: _startGame,
-              icon: const Icon(Icons.play_arrow),
-              label: const Text('Lancer la partie'),
-              style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 16)),
-            )
-          ],
+              const SizedBox(height: 32),
+              ElevatedButton.icon(
+                onPressed: _startGame,
+                icon: const Icon(Icons.play_arrow),
+                label: const Text('Lancer la partie'),
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  backgroundColor: Theme.of(context).primaryColor,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 }
 
-/// Feuille de réglages accessibles via la roue crantée
 class _SettingsSheet extends StatefulWidget {
   @override
   State<_SettingsSheet> createState() => _SettingsSheetState();
