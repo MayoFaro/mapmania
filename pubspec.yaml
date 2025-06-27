@@ -41,8 +41,7 @@ flutter:
     - assets/maps/
     - assets/fonts/flags_sprite.png
     - assets/maps/africa/relief.png
-    - assets/maps/africa/test_pattern.png
-    - assets/maps/africa/af.geojson
+    - assets/maps/af.geojson
 
 
   uses-material-design: true

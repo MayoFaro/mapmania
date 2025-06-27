@@ -243,9 +243,9 @@ class _MapPainter extends CustomPainter {
           canvas.drawPath(
             path,
             Paint()
-              ..color = Colors.black.withOpacity(0.3)
+              ..color = Colors.black87.withAlpha(177)
               ..style = PaintingStyle.stroke
-              ..strokeWidth = 0.5,
+              ..strokeWidth = 0.1,
           );
         }
         continue;
